@@ -1,0 +1,64 @@
+//Colors
+$text-dark: #403F3D;
+$text-light: #E1D4C9;
+$text-accent: #B0907A;
+$bg-body: #E1D4C9;
+$bg-container: #665F55;
+$bg-backdrop: rgba(64, 63, 61, 0.80);
+$border-light: #C1B6AD;
+$border-dark: #665F55;
+
+//Typography
+@mixin heading-1 {
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 105%;
+}
+
+@mixin heading-2 {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+@mixin heading-3 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@mixin medium {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+@mixin caption {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+@mixin link-btn {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+@mixin burger-link {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
