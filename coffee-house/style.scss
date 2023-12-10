@@ -255,3 +255,58 @@ body {
     }
   }
 }
+
+.apps {
+  color: $text-dark;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .apps__left-side {
+    max-width: 630px;
+
+    .apps__title {
+      @include heading-2;
+
+      span {
+        @include span;
+      }
+    }
+
+    .apps__description {
+      @include medium;
+      margin: 40px 0;
+    }
+
+    .apps__btns {
+      display: flex;
+      gap: 20px;
+
+      .apps__btn {
+        color: $text-dark;
+        background-color: $bg-body;
+        border-radius: 100px;
+        padding: 12px 20px;
+        display: flex;
+        gap: 8px;
+        border: 1px solid $border-dark;
+        cursor: pointer;
+
+        .apps-btn-description {
+          width: 112px;
+          text-align: start;
+
+          :first-child {
+            @include caption;
+            margin-bottom: 2px;
+          }
+
+          :last-child {
+            @include link-btn;
+          }
+        }
+      }
+    }
+  }
+}
