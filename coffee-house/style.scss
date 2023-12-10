@@ -209,3 +209,49 @@ body {
     }
   }
 }
+
+.about {
+  margin-bottom: 100px;
+  color: $text-dark;
+
+  .about__title {
+    @include heading-2;
+    margin-bottom: 40px;
+
+    span {
+      @include span;
+    }
+  }
+
+  .about__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+
+    img {
+      width: 100%;
+    }
+
+    .about__img_high {
+      max-width: 660px;
+      max-height: 590px;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .about__img {
+      max-width: 660px;
+      max-height: 430px;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .about__left-side,
+    .about__right-side {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+}
