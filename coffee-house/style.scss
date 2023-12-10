@@ -51,6 +51,11 @@ $border-dark: #665F55;
   line-height: 125%;
 }
 
+@mixin span {
+  font-style: italic;
+  color: $text-accent;
+}
+
 
 *,
 *::before,
@@ -60,6 +65,7 @@ $border-dark: #665F55;
 
 h1,
 h2,
+h3,
 p,
 ul {
   margin: 0;
@@ -108,6 +114,7 @@ body {
 
 .hero {
   margin-bottom: 100px;
+  color: $text-light;
 
   .hero__img {
     height: 644px;
@@ -127,16 +134,13 @@ body {
 
       .hero__title {
         @include heading-1;
-        color: $text-light;
 
         span {
-          font-style: italic;
-          color: $text-accent;
+          @include span;
         }
       }
 
       .hero__description {
-        color: $text-light;
         @include medium;
       }
 
@@ -145,9 +149,63 @@ body {
         padding: 20px 78px;
         border-radius: 100px;
         background-color: $bg-body;
+        color: $text-dark;
         border: none;
       }
     }
 
+  }
+}
+
+.favorite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 100px;
+  color: $text-dark;
+
+  .favorite__title {
+    @include heading-2;
+
+    span {
+      @include span;
+    }
+  }
+
+  .slider {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    .slider__coffee {
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .slider__img {
+        max-width: 480px;
+        max-height: 480px;
+        margin-bottom: 20px;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .slider__title,
+      .slider__price {
+        @include heading-3;
+      }
+
+      .slider__description {
+        @include medium;
+        text-align: center;
+        margin: 16px 0;
+      }
+    }
   }
 }

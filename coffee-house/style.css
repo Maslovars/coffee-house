@@ -6,6 +6,7 @@
 
 h1,
 h2,
+h3,
 p,
 ul {
   margin: 0;
@@ -54,6 +55,7 @@ body {
 
 .hero {
   margin-bottom: 100px;
+  color: #E1D4C9;
 }
 .hero .hero__img {
   height: 644px;
@@ -75,14 +77,12 @@ body {
   font-size: 72px;
   font-weight: 600;
   line-height: 105%;
-  color: #E1D4C9;
 }
 .hero .hero__img .hero__block .hero__title span {
   font-style: italic;
   color: #B0907A;
 }
 .hero .hero__img .hero__block .hero__description {
-  color: #E1D4C9;
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
@@ -92,5 +92,58 @@ body {
   padding: 20px 78px;
   border-radius: 100px;
   background-color: #E1D4C9;
+  color: #403F3D;
   border: none;
+}
+
+.favorite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 100px;
+  color: #403F3D;
+}
+.favorite .favorite__title {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+}
+.favorite .favorite__title span {
+  font-style: italic;
+  color: #B0907A;
+}
+.favorite .slider {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.favorite .slider .slider__coffee {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.favorite .slider .slider__coffee .slider__img {
+  max-width: 480px;
+  max-height: 480px;
+  margin-bottom: 20px;
+}
+.favorite .slider .slider__coffee .slider__img img {
+  width: 100%;
+}
+.favorite .slider .slider__coffee .slider__title,
+.favorite .slider .slider__coffee .slider__price {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+.favorite .slider .slider__coffee .slider__description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  text-align: center;
+  margin: 16px 0;
 }/*# sourceMappingURL=style.css.map */
