@@ -56,6 +56,16 @@ $border-dark: #665F55;
   color: $text-accent;
 }
 
+@mixin underline {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0;
+  bottom: -4px;
+  left: 0;
+
+}
+
 
 *,
 *::before,
@@ -79,12 +89,20 @@ ul {
 a {
   text-decoration: none;
   position: relative;
+  transition: 0.5s ease-in;
+
+  &::after {
+    transition: 0.5s ease-in;
+  }
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth;
   background-color: $bg-body;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -94,6 +112,11 @@ body {
   padding: 0 40px;
 }
 
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -101,6 +124,7 @@ body {
   margin: 20px auto;
 
   .header__logo {
+    display: block;
     max-width: 100px;
     max-height: 60px;
   }
@@ -108,12 +132,33 @@ body {
   .header__list {
     display: flex;
     gap: 40px;
+
+    .header__item {
+      transition: 5s ease-in;
+    }
   }
 
   .header__link,
   .header__menu {
     @include link-btn;
     color: $text-dark;
+
+    &::after {
+      @include underline;
+      background-color: $text-dark;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  .header__menu_active {
+    &::after {
+      @include underline;
+      background-color: $text-dark;
+      width: 100%;
+    }
   }
 }
 
@@ -152,10 +197,27 @@ body {
       .hero__btn {
         align-self: flex-start;
         padding: 20px 78px;
+        width: 200px;
         border-radius: 100px;
         background-color: $bg-body;
         color: $text-dark;
         border: none;
+
+        span {
+          position: absolute;
+          opacity: 0;
+          right: 64px;
+          transition: opacity 1s;
+        }
+
+        &:hover {
+          padding-left: 64px;
+
+          span {
+            display: inline-block;
+            opacity: 1;
+          }
+        }
       }
     }
 
@@ -259,6 +321,13 @@ body {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &:hover {
+        img {
+          transition: transform 1s;
+          transform: scale(0.9);
+        }
+      }
     }
 
     .about__img_high {
@@ -314,6 +383,17 @@ body {
         gap: 8px;
         border: 1px solid $border-dark;
         cursor: pointer;
+        transition: 0.5s ease-in;
+
+        &:hover {
+          color: $text-light;
+          border: none;
+          background-color: $bg-container;
+
+          svg {
+            stroke: $text-light;
+          }
+        }
 
         .apps-btn-description {
           width: 112px;
@@ -370,6 +450,16 @@ body {
         align-items: center;
         border-radius: 100px;
         border: 1px solid $border-light;
+
+        &:hover {
+          border: none;
+          background-color: $bg-body;
+
+          svg path {
+            stroke: $text-dark;
+          }
+
+        }
       }
     }
   }
@@ -389,6 +479,15 @@ body {
       .footer__link-item {
         color: $text-light;
         @include link-btn;
+
+        &::after {
+          @include underline;
+          background-color: $text-light;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
       }
 
       :nth-child(2) {
@@ -435,6 +534,16 @@ body {
       border-radius: 100px;
       border: 1px solid $border-light;
       cursor: pointer;
+      transition: 0.5s ease-in;
+
+      &:hover {
+        background-color: $bg-container;
+        color: $text-light;
+
+        .menu__btn-img {
+          background-color: $bg-body;
+        }
+      }
 
       .menu__btn-img {
         display: flex;
@@ -451,7 +560,6 @@ body {
     .menu__btn_active {
       color: $text-light;
       background-color: $bg-container;
-      cursor: default;
 
       .menu__btn-img {
         background-color: $bg-body;
@@ -468,6 +576,14 @@ body {
 
     .menu__preview-item {
       max-width: 310px;
+      cursor: pointer;
+
+      &:hover {
+        img {
+          transition: transform 1s;
+          transform: scale(0.9);
+        }
+      }
 
       .menu__preview-img {
         width: 310px;
