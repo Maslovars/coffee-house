@@ -299,10 +299,12 @@ body {
 
           :first-child {
             @include caption;
+            display: block;
             margin-bottom: 2px;
           }
 
           :last-child {
+            display: block;
             @include link-btn;
           }
         }

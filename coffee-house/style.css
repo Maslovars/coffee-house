@@ -237,9 +237,11 @@ body {
   font-size: 10px;
   font-weight: 600;
   line-height: 140%;
+  display: block;
   margin-bottom: 2px;
 }
 .apps .apps__left-side .apps__btns .apps__btn .apps-btn-description :last-child {
+  display: block;
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
