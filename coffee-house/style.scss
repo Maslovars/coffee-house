@@ -58,10 +58,16 @@ $border-dark: #665F55;
   box-sizing: border-box;
 }
 
+h1,
+h2,
+p,
 ul {
-  list-style: none;
   margin: 0;
   padding: 0;
+}
+
+ul {
+  list-style: none;
 }
 
 a {
@@ -79,7 +85,7 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 72px;
+  padding: 0 40px;
 }
 
 .header {
@@ -97,5 +103,51 @@ body {
   .header__menu {
     @include link-btn;
     color: $text-dark;
+  }
+}
+
+.hero {
+  margin-bottom: 100px;
+
+  .hero__img {
+    height: 644px;
+    background-image: url(./assets/img-hero.png);
+    background-size: cover;
+    border-radius: 40px;
+    position: relative;
+
+    .hero__block {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      max-width: 530px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      .hero__title {
+        @include heading-1;
+        color: $text-light;
+
+        span {
+          font-style: italic;
+          color: $text-accent;
+        }
+      }
+
+      .hero__description {
+        color: $text-light;
+        @include medium;
+      }
+
+      .hero__btn {
+        align-self: flex-start;
+        padding: 20px 78px;
+        border-radius: 100px;
+        background-color: $bg-body;
+        border: none;
+      }
+    }
+
   }
 }

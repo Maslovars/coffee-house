@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coffee house</title>
+  <link rel="icon" href="./assets/logo.svg" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -15,7 +16,7 @@
 <body>
   <header class="header container">
     <div class="header__logo">
-      <img src="./assets/logo.png" alt="site logo">
+      <img src="./assets/logo.svg" alt="site logo">
     </div>
     <nav class="header__nav">
       <ul class="header__list">
@@ -25,8 +26,27 @@
         <li class="header__item"><a href="" class="header__link">Contact us</a></li>
       </ul>
     </nav>
-    <div class="header__menu">Menu<span></span></div>
+    <div class="header__menu">Menu<span>
+        <img src="./assets/coffee-cup.svg" alt="cup">
+      </span></div>
   </header>
+  <main>
+    <section class="hero container">
+      <div class="hero__img">
+        <div class="hero__block">
+          <h1 class="hero__title">
+            <span>Enjoy</span> premium coffee at our charming cafe
+          </h1>
+          <p class="hero__description">
+            With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular
+            destination
+            for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage.
+          </p>
+          <button class="hero__btn">Menu</button>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 
 </html>
