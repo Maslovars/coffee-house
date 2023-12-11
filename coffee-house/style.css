@@ -340,6 +340,7 @@ html {
   background-color: #665F55;
 }
 .apps .apps__left-side .apps__btns .apps__btn:hover svg path {
+  transition: 0.5s ease-in;
   fill: #E1D4C9;
 }
 .apps .apps__left-side .apps__btns .apps__btn .apps-btn-description {

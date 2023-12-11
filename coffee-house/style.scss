@@ -421,6 +421,7 @@ html {
           background-color: $bg-container;
 
           svg path {
+            transition: 0.5s ease-in;
             fill: $text-light;
           }
         }
