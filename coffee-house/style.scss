@@ -62,7 +62,7 @@ $border-dark: #665F55;
   height: 2px;
   width: 0;
   bottom: -4px;
-  left: 0;
+  left: 50.1%;
 
 }
 
@@ -91,7 +91,8 @@ a {
   position: relative;
   transition: 0.5s ease-in;
 
-  &::after {
+  &::after,
+  &::before {
     transition: 0.5s ease-in;
   }
 }
@@ -143,13 +144,19 @@ html {
     @include link-btn;
     color: $text-dark;
 
-    &::after {
+    &::after,
+    &::before {
       @include underline;
       background-color: $text-dark;
     }
 
     &:hover::after {
-      width: 100%;
+      width: 50%;
+    }
+
+    &:hover::before {
+      width: 50%;
+      transform: translateX(-100%);
     }
   }
 
@@ -158,6 +165,7 @@ html {
       @include underline;
       background-color: $text-dark;
       width: 100%;
+      left: 0;
     }
   }
 }
@@ -246,6 +254,28 @@ html {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+
+    .slider__left-btn,
+    .slider__right-btn {
+      display: flex;
+      width: 60px;
+      height: 60px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100px;
+      border: 1px solid $border-dark;
+      cursor: pointer;
+      transition: 0.5s ease-in;
+
+      &:hover {
+        border-color: $bg-container;
+        background-color: $bg-container;
+
+        svg path {
+          stroke: $text-light;
+        }
+      }
+    }
 
     .slider__coffee {
       max-width: 480px;
@@ -387,11 +417,11 @@ html {
 
         &:hover {
           color: $text-light;
-          border: none;
+          border-color: $bg-container;
           background-color: $bg-container;
 
-          svg {
-            stroke: $text-light;
+          svg path {
+            fill: $text-light;
           }
         }
 
@@ -452,7 +482,7 @@ html {
         border: 1px solid $border-light;
 
         &:hover {
-          border: none;
+          border: $bg-body;
           background-color: $bg-body;
 
           svg path {
@@ -480,13 +510,19 @@ html {
         color: $text-light;
         @include link-btn;
 
-        &::after {
+        &::after,
+        &::before {
           @include underline;
           background-color: $text-light;
         }
 
         &:hover::after {
-          width: 100%;
+          width: 50%;
+        }
+
+        &:hover::before {
+          width: 50%;
+          transform: translateX(-100%);
         }
       }
 

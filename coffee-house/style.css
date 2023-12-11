@@ -22,7 +22,7 @@ a {
   position: relative;
   transition: 0.5s ease-in;
 }
-a::after {
+a::after, a::before {
   transition: 0.5s ease-in;
 }
 
@@ -72,19 +72,25 @@ html {
   line-height: 150%;
   color: #403F3D;
 }
-.header .header__link::after,
-.header .header__menu::after {
+.header .header__link::after, .header .header__link::before,
+.header .header__menu::after,
+.header .header__menu::before {
   content: "";
   position: absolute;
   height: 2px;
   width: 0;
   bottom: -4px;
-  left: 0;
+  left: 50.1%;
   background-color: #403F3D;
 }
 .header .header__link:hover::after,
 .header .header__menu:hover::after {
-  width: 100%;
+  width: 50%;
+}
+.header .header__link:hover::before,
+.header .header__menu:hover::before {
+  width: 50%;
+  transform: translateX(-100%);
 }
 .header .header__menu_active::after {
   content: "";
@@ -92,9 +98,10 @@ html {
   height: 2px;
   width: 0;
   bottom: -4px;
-  left: 0;
+  left: 50.1%;
   background-color: #403F3D;
   width: 100%;
+  left: 0;
 }
 
 .hero {
@@ -177,6 +184,27 @@ html {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+}
+.favorite .slider .slider__left-btn,
+.favorite .slider .slider__right-btn {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid #665F55;
+  cursor: pointer;
+  transition: 0.5s ease-in;
+}
+.favorite .slider .slider__left-btn:hover,
+.favorite .slider .slider__right-btn:hover {
+  border-color: #665F55;
+  background-color: #665F55;
+}
+.favorite .slider .slider__left-btn:hover svg path,
+.favorite .slider .slider__right-btn:hover svg path {
+  stroke: #E1D4C9;
 }
 .favorite .slider .slider__coffee {
   max-width: 480px;
@@ -308,11 +336,11 @@ html {
 }
 .apps .apps__left-side .apps__btns .apps__btn:hover {
   color: #E1D4C9;
-  border: none;
+  border-color: #665F55;
   background-color: #665F55;
 }
-.apps .apps__left-side .apps__btns .apps__btn:hover svg {
-  stroke: #E1D4C9;
+.apps .apps__left-side .apps__btns .apps__btn:hover svg path {
+  fill: #E1D4C9;
 }
 .apps .apps__left-side .apps__btns .apps__btn .apps-btn-description {
   width: 112px;
@@ -370,7 +398,7 @@ html {
   border: 1px solid #C1B6AD;
 }
 .footer .footer__left-side .footer__icons .footer__icon a:hover {
-  border: none;
+  border: #E1D4C9;
   background-color: #E1D4C9;
 }
 .footer .footer__left-side .footer__icons .footer__icon a:hover svg path {
@@ -397,17 +425,21 @@ html {
   font-weight: 600;
   line-height: 150%;
 }
-.footer .footer__right-side .footer__link-items .footer__link-item::after {
+.footer .footer__right-side .footer__link-items .footer__link-item::after, .footer .footer__right-side .footer__link-items .footer__link-item::before {
   content: "";
   position: absolute;
   height: 2px;
   width: 0;
   bottom: -4px;
-  left: 0;
+  left: 50.1%;
   background-color: #E1D4C9;
 }
 .footer .footer__right-side .footer__link-items .footer__link-item:hover::after {
-  width: 100%;
+  width: 50%;
+}
+.footer .footer__right-side .footer__link-items .footer__link-item:hover::before {
+  width: 50%;
+  transform: translateX(-100%);
 }
 .footer .footer__right-side .footer__link-items :nth-child(2) {
   margin: 16px 0;
