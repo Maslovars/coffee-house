@@ -267,6 +267,10 @@ html {
       cursor: pointer;
       transition: 0.5s ease-in;
 
+      svg path {
+        transition: 0.5s ease-in;
+      }
+
       &:hover {
         border-color: $bg-container;
         background-color: $bg-container;
@@ -353,10 +357,14 @@ html {
       justify-content: center;
       align-items: center;
 
+      img {
+        transition: transform 1s ease-out;
+      }
+
       &:hover {
         img {
-          transition: transform 1s;
-          transform: scale(0.9);
+          transition: transform 1s ease-out;
+          transform: scale(0.91);
         }
       }
     }
@@ -415,6 +423,10 @@ html {
         border: 1px solid $border-dark;
         cursor: pointer;
         transition: 0.5s ease-in;
+
+        svg path {
+          transition: 0.5s ease-in;
+        }
 
         &:hover {
           color: $text-light;
@@ -482,6 +494,10 @@ html {
         align-items: center;
         border-radius: 100px;
         border: 1px solid $border-light;
+
+        svg path {
+          transition: 0.5s ease-in;
+        }
 
         &:hover {
           border: $bg-body;
@@ -621,9 +637,13 @@ html {
       border-radius: 40px;
       border: 1px solid $border-light;
 
+      img {
+        transition: transform 1s ease-out;
+      }
+
       &:hover {
         img {
-          transition: transform 1s;
+          transition: transform 1s ease-out;
           transform: scale(0.91);
         }
       }

@@ -197,6 +197,10 @@ html {
   cursor: pointer;
   transition: 0.5s ease-in;
 }
+.favorite .slider .slider__left-btn svg path,
+.favorite .slider .slider__right-btn svg path {
+  transition: 0.5s ease-in;
+}
 .favorite .slider .slider__left-btn:hover,
 .favorite .slider .slider__right-btn:hover {
   border-color: #665F55;
@@ -278,9 +282,12 @@ html {
   justify-content: center;
   align-items: center;
 }
+.about .about__container .about__img img {
+  transition: transform 1s ease-out;
+}
 .about .about__container .about__img:hover img {
-  transition: transform 1s;
-  transform: scale(0.9);
+  transition: transform 1s ease-out;
+  transform: scale(0.91);
 }
 .about .about__container .about__img_high {
   max-height: 590px;
@@ -333,6 +340,9 @@ html {
   gap: 8px;
   border: 1px solid #665F55;
   cursor: pointer;
+  transition: 0.5s ease-in;
+}
+.apps .apps__left-side .apps__btns .apps__btn svg path {
   transition: 0.5s ease-in;
 }
 .apps .apps__left-side .apps__btns .apps__btn:hover {
@@ -398,6 +408,9 @@ html {
   align-items: center;
   border-radius: 100px;
   border: 1px solid #C1B6AD;
+}
+.footer .footer__left-side .footer__icons .footer__icon a svg path {
+  transition: 0.5s ease-in;
 }
 .footer .footer__left-side .footer__icons .footer__icon a:hover {
   border: #E1D4C9;
@@ -526,8 +539,11 @@ html {
   border-radius: 40px;
   border: 1px solid #C1B6AD;
 }
+.menu .menu__preview .menu__preview-item img {
+  transition: transform 1s ease-out;
+}
 .menu .menu__preview .menu__preview-item:hover img {
-  transition: transform 1s;
+  transition: transform 1s ease-out;
   transform: scale(0.91);
 }
 .menu .menu__preview .menu__preview-item .menu__preview-img {
