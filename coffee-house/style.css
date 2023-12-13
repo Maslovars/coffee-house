@@ -205,6 +205,7 @@ html {
 .favorite .slider .slider__left-btn:hover svg path,
 .favorite .slider .slider__right-btn:hover svg path {
   stroke: #E1D4C9;
+  transition: 0.5s ease-in;
 }
 .favorite .slider .slider__coffee {
   max-width: 480px;
@@ -404,6 +405,7 @@ html {
 }
 .footer .footer__left-side .footer__icons .footer__icon a:hover svg path {
   stroke: #403F3D;
+  transition: 0.5s ease-in;
 }
 .footer .footer__right-side {
   width: 530px;
@@ -501,6 +503,7 @@ html {
   align-items: center;
   border-radius: 100px;
   background-color: #C1B6AD;
+  transition: 0.5s ease-in;
 }
 .menu .menu__btns .menu__btn_active {
   color: #E1D4C9;
@@ -518,7 +521,10 @@ html {
 }
 .menu .menu__preview .menu__preview-item {
   max-width: 310px;
+  max-height: 506px;
   cursor: pointer;
+  border-radius: 40px;
+  border: 1px solid #C1B6AD;
 }
 .menu .menu__preview .menu__preview-item:hover img {
   transition: transform 1s;

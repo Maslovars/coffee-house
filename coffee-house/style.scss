@@ -273,6 +273,7 @@ html {
 
         svg path {
           stroke: $text-light;
+          transition: 0.5s ease-in;
         }
       }
     }
@@ -488,6 +489,7 @@ html {
 
           svg path {
             stroke: $text-dark;
+            transition: 0.5s ease-in;
           }
 
         }
@@ -591,6 +593,7 @@ html {
         align-items: center;
         border-radius: 100px;
         background-color: $border-light;
+        transition: 0.5s ease-in;
       }
     }
 
@@ -613,7 +616,10 @@ html {
 
     .menu__preview-item {
       max-width: 310px;
+      max-height: 506px;
       cursor: pointer;
+      border-radius: 40px;
+      border: 1px solid $border-light;
 
       &:hover {
         img {
