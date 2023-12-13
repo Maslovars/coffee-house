@@ -528,7 +528,7 @@ html {
 }
 .menu .menu__preview .menu__preview-item:hover img {
   transition: transform 1s;
-  transform: scale(0.9);
+  transform: scale(0.91);
 }
 .menu .menu__preview .menu__preview-item .menu__preview-img {
   width: 310px;
