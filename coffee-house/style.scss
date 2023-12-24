@@ -15,8 +15,20 @@ $border-dark: #665F55;
   line-height: 105%;
 }
 
+@mixin heading-1-m {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 115%;
+}
+
 @mixin heading-2 {
   font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+@mixin heading-2-m {
+  font-size: 32px;
   font-weight: 600;
   line-height: 125%;
 }
@@ -63,7 +75,6 @@ $border-dark: #665F55;
   width: 0;
   bottom: -4px;
   left: 50.1%;
-
 }
 
 
@@ -168,6 +179,10 @@ html {
       left: 0;
     }
   }
+
+  .header__burger {
+    display: none;
+  }
 }
 
 .hero {
@@ -215,7 +230,7 @@ html {
           position: absolute;
           opacity: 0;
           right: 64px;
-          transition: opacity 1s;
+          transition: opacity 0.3s ease-in;
         }
 
         &:hover {
@@ -277,7 +292,6 @@ html {
 
         svg path {
           stroke: $text-light;
-          transition: 0.5s ease-in;
         }
       }
     }
@@ -358,12 +372,11 @@ html {
       align-items: center;
 
       img {
-        transition: transform 1s ease-out;
+        transition: transform 0.5s ease-out;
       }
 
       &:hover {
         img {
-          transition: transform 1s ease-out;
           transform: scale(0.91);
         }
       }
@@ -434,7 +447,6 @@ html {
           background-color: $bg-container;
 
           svg path {
-            transition: 0.5s ease-in;
             fill: $text-light;
           }
         }
@@ -466,12 +478,14 @@ html {
   margin-bottom: 40px;
   border-radius: 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 100px;
 
   .footer__left-side {
-    width: 530px;
+    max-width: 530px;
+    width: 100%;
 
     .footer__title {
       @include heading-2;
@@ -505,7 +519,6 @@ html {
 
           svg path {
             stroke: $text-dark;
-            transition: 0.5s ease-in;
           }
 
         }
@@ -514,7 +527,8 @@ html {
   }
 
   .footer__right-side {
-    width: 530px;
+    max-width: 530px;
+    width: 100%;
     height: 186px;
 
     .footer__contacts {
@@ -626,7 +640,7 @@ html {
 
   .menu__preview {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
 
@@ -638,12 +652,11 @@ html {
       border: 1px solid $border-light;
 
       img {
-        transition: transform 1s ease-out;
+        transition: transform 0.5s ease-out;
       }
 
       &:hover {
         img {
-          transition: transform 1s ease-out;
           transform: scale(0.91);
         }
       }
@@ -678,6 +691,85 @@ html {
           @include heading-3;
         }
       }
+    }
+
+    .menu__preview-btn {
+      display: none;
+    }
+  }
+}
+
+//////////////////768px
+
+@media (max-width: 768px) {
+
+  .header {
+
+    .header__nav,
+    .header__menu {
+      display: none;
+    }
+
+    .header__burger {
+      display: flex;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      background-color: transparent;
+      padding: 0;
+    }
+  }
+
+  .footer {
+    padding: 100px 60px;
+    justify-content: flex-start;
+  }
+
+  .menu {
+    .menu__preview {
+      .menu__preview-item_hidden {
+        display: none;
+      }
+
+      .menu__preview-btn {
+        display: flex;
+        justify-content: center;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        background-color: transparent;
+        padding: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+////////////////////650px
+
+@media(max-width: 650px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .footer {
+    padding: 60px 16px;
+    gap: 40px;
+
+    .footer__left-side {
+      .footer__title {
+        @include heading-2-m;
+      }
+    }
+  }
+
+  .menu {
+    .menu__title {
+      @include heading-2-m;
+    }
+
+    .menu__btns {
+      gap: 8px;
     }
   }
 }
