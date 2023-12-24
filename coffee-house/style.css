@@ -623,6 +623,16 @@ html {
     display: inline-block;
     opacity: 1;
   }
+  .about .about__container {
+    -moz-column-gap: 0;
+         column-gap: 0;
+  }
+  .about .about__container .about__img {
+    max-width: 688px;
+  }
+  .about .about__container .about__img_short {
+    display: none;
+  }
   .footer {
     padding: 100px 60px;
     justify-content: flex-start;
@@ -666,6 +676,14 @@ html {
   .favorite .slider .slider__left-btn,
   .favorite .slider .slider__right-btn {
     display: none;
+  }
+  .about .about__title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+  }
+  .about .about__container .about__img {
+    max-width: 348px;
   }
   .footer {
     padding: 60px 16px;

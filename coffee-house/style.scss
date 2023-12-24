@@ -752,6 +752,20 @@ html {
     }
   }
 
+  .about {
+    .about__container {
+      column-gap: 0;
+
+      .about__img {
+        max-width: 688px;
+      }
+
+      .about__img_short {
+        display: none;
+      }
+    }
+  }
+
   .footer {
     padding: 100px 60px;
     justify-content: flex-start;
@@ -810,6 +824,18 @@ html {
       .slider__left-btn,
       .slider__right-btn {
         display: none;
+      }
+    }
+  }
+
+  .about {
+    .about__title {
+      @include heading-2-m;
+    }
+
+    .about__container {
+      .about__img {
+        max-width: 348px;
       }
     }
   }
