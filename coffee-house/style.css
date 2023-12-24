@@ -283,7 +283,7 @@ html {
 }
 .about .about__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
 }
@@ -320,6 +320,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 .apps .apps__left-side {
   max-width: 630px;
@@ -597,6 +598,15 @@ html {
   display: none;
 }
 
+@media (max-width: 1350px) {
+  .apps {
+    justify-content: center;
+    gap: 100px;
+  }
+  .apps .apps__left-side {
+    max-width: 688px;
+  }
+}
 @media (max-width: 768px) {
   .header .header__nav,
   .header .header__menu {

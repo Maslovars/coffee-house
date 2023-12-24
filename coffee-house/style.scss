@@ -369,7 +369,7 @@ html {
 
   .about__container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
 
@@ -415,6 +415,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 
   .apps__left-side {
     max-width: 630px;
@@ -711,6 +712,19 @@ html {
     }
   }
 }
+
+/////////////////1350px
+@media (max-width: 1350px) {
+  .apps {
+    justify-content: center;
+    gap: 100px;
+
+    .apps__left-side {
+      max-width: 688px;
+    }
+  }
+}
+
 
 //////////////////768px
 
