@@ -265,6 +265,7 @@ html {
 
   .favorite__title {
     @include heading-2;
+    text-align: center;
 
     span {
       @include span;
@@ -343,10 +344,12 @@ html {
       height: 4px;
       border-radius: 100px;
       background-color: $border-light;
+      cursor: pointer;
     }
 
     .slider__control_active {
       background-color: $border-dark;
+      cursor: default;
     }
   }
 }
@@ -783,10 +786,30 @@ html {
 
   .hero {
     .hero__img {
+      height: 552px;
+
       .hero__block {
+        left: 16px;
+        top: 60px;
+        max-width: 316px;
+
         .hero__title {
           @include heading-1-m;
         }
+      }
+    }
+  }
+
+  .favorite {
+    .favorite__title {
+      @include heading-2-m;
+    }
+
+    .slider {
+
+      .slider__left-btn,
+      .slider__right-btn {
+        display: none;
       }
     }
   }

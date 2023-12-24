@@ -185,6 +185,7 @@ html {
   font-size: 60px;
   font-weight: 600;
   line-height: 125%;
+  text-align: center;
 }
 .favorite .favorite__title span {
   font-style: italic;
@@ -259,9 +260,11 @@ html {
   height: 4px;
   border-radius: 100px;
   background-color: #C1B6AD;
+  cursor: pointer;
 }
 .favorite .slider__controls .slider__control_active {
   background-color: #665F55;
+  cursor: default;
 }
 
 .about {
@@ -642,10 +645,27 @@ html {
   .container {
     padding: 0 16px;
   }
+  .hero .hero__img {
+    height: 552px;
+  }
+  .hero .hero__img .hero__block {
+    left: 16px;
+    top: 60px;
+    max-width: 316px;
+  }
   .hero .hero__img .hero__block .hero__title {
     font-size: 42px;
     font-weight: 600;
     line-height: 115%;
+  }
+  .favorite .favorite__title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+  }
+  .favorite .slider .slider__left-btn,
+  .favorite .slider .slider__right-btn {
+    display: none;
   }
   .footer {
     padding: 60px 16px;
