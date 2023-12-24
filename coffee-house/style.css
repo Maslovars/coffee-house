@@ -65,6 +65,10 @@ html {
 .header .header__list .header__item {
   transition: 5s ease-in;
 }
+.header .header__menu {
+  display: flex;
+  gap: 8px;
+}
 .header .header__link,
 .header .header__menu {
   font-size: 16px;
@@ -114,6 +118,7 @@ html {
 .hero .hero__img {
   height: 644px;
   background-image: url(./assets/img-hero.png);
+  background-position: center -30px;
   background-size: cover;
   border-radius: 40px;
   position: relative;
@@ -142,6 +147,9 @@ html {
   line-height: 150%;
 }
 .hero .hero__img .hero__block .hero__btn {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
   align-self: flex-start;
   padding: 20px 78px;
   width: 200px;
@@ -305,7 +313,7 @@ html {
 
 .apps {
   color: #403F3D;
-  margin-bottom: 100px;
+  margin-bottom: 98px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -438,6 +446,9 @@ html {
   line-height: 150%;
 }
 .footer .footer__right-side .footer__link-items .footer__link-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   color: #E1D4C9;
   font-size: 16px;
   font-weight: 600;
@@ -596,6 +607,19 @@ html {
     background-color: transparent;
     padding: 0;
   }
+  .hero .hero__img {
+    background-position: center 0;
+  }
+  .hero .hero__img .hero__block {
+    left: 60px;
+  }
+  .hero .hero__img .hero__block .hero__btn {
+    padding-left: 64px;
+  }
+  .hero .hero__img .hero__block .hero__btn span {
+    display: inline-block;
+    opacity: 1;
+  }
   .footer {
     padding: 100px 60px;
     justify-content: flex-start;
@@ -617,6 +641,11 @@ html {
 @media (max-width: 650px) {
   .container {
     padding: 0 16px;
+  }
+  .hero .hero__img .hero__block .hero__title {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 115%;
   }
   .footer {
     padding: 60px 16px;

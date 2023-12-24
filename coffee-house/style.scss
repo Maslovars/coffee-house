@@ -150,6 +150,11 @@ html {
     }
   }
 
+  .header__menu {
+    display: flex;
+    gap: 8px;
+  }
+
   .header__link,
   .header__menu {
     @include link-btn;
@@ -192,6 +197,7 @@ html {
   .hero__img {
     height: 644px;
     background-image: url(./assets/img-hero.png);
+    background-position: center -30px;
     background-size: cover;
     border-radius: 40px;
     position: relative;
@@ -218,6 +224,7 @@ html {
       }
 
       .hero__btn {
+        @include link-btn;
         align-self: flex-start;
         padding: 20px 78px;
         width: 200px;
@@ -401,7 +408,7 @@ html {
 
 .apps {
   color: $text-dark;
-  margin-bottom: 100px;
+  margin-bottom: 98px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -540,6 +547,9 @@ html {
       @include link-btn;
 
       .footer__link-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
         color: $text-light;
         @include link-btn;
 
@@ -720,6 +730,25 @@ html {
     }
   }
 
+  .hero {
+    .hero__img {
+      background-position: center 0;
+
+      .hero__block {
+        left: 60px;
+
+        .hero__btn {
+          padding-left: 64px;
+
+          span {
+            display: inline-block;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
   .footer {
     padding: 100px 60px;
     justify-content: flex-start;
@@ -750,6 +779,16 @@ html {
 @media(max-width: 650px) {
   .container {
     padding: 0 16px;
+  }
+
+  .hero {
+    .hero__img {
+      .hero__block {
+        .hero__title {
+          @include heading-1-m;
+        }
+      }
+    }
   }
 
   .footer {
