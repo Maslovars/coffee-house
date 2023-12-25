@@ -695,6 +695,25 @@ html {
   .about .about__container .about__img {
     max-width: 348px;
   }
+  .apps {
+    gap: 37px;
+  }
+  .apps .apps__left-side .apps__title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+  }
+  .apps .apps__left-side .apps__btns {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .apps .apps__right-side {
+    max-width: 348px;
+  }
+  .apps .apps__right-side img {
+    width: 100%;
+  }
   .footer {
     padding: 60px 16px;
     gap: 40px;
