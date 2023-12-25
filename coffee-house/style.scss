@@ -166,13 +166,15 @@ html {
       background-color: $text-dark;
     }
 
-    &:hover::after {
-      width: 50%;
-    }
+    @media(hover: hover) {
+      &:hover::after {
+        width: 50%;
+      }
 
-    &:hover::before {
-      width: 50%;
-      transform: translateX(-100%);
+      &:hover::before {
+        width: 50%;
+        transform: translateX(-100%);
+      }
     }
   }
 
@@ -240,12 +242,14 @@ html {
           transition: opacity 0.3s ease-in;
         }
 
-        &:hover {
-          padding-left: 64px;
+        @media(hover: hover) {
+          &:hover {
+            padding-left: 64px;
 
-          span {
-            display: inline-block;
-            opacity: 1;
+            span {
+              display: inline-block;
+              opacity: 1;
+            }
           }
         }
       }
@@ -294,12 +298,14 @@ html {
         transition: 0.5s ease-in;
       }
 
-      &:hover {
-        border-color: $bg-container;
-        background-color: $bg-container;
+      @media(hover: hover) {
+        &:hover {
+          border-color: $bg-container;
+          background-color: $bg-container;
 
-        svg path {
-          stroke: $text-light;
+          svg path {
+            stroke: $text-light;
+          }
         }
       }
     }
@@ -385,9 +391,11 @@ html {
         transition: transform 0.5s ease-out;
       }
 
-      &:hover {
-        img {
-          transform: scale(0.91);
+      @media(hover: hover) {
+        &:hover {
+          img {
+            transform: scale(0.91);
+          }
         }
       }
     }
@@ -452,13 +460,15 @@ html {
           transition: 0.5s ease-in;
         }
 
-        &:hover {
-          color: $text-light;
-          border-color: $bg-container;
-          background-color: $bg-container;
+        @media(hover: hover) {
+          &:hover {
+            color: $text-light;
+            border-color: $bg-container;
+            background-color: $bg-container;
 
-          svg path {
-            fill: $text-light;
+            svg path {
+              fill: $text-light;
+            }
           }
         }
 
@@ -524,14 +534,15 @@ html {
           transition: 0.5s ease-in;
         }
 
-        &:hover {
-          border: $bg-body;
-          background-color: $bg-body;
+        @media(hover: hover) {
+          &:hover {
+            border: $bg-body;
+            background-color: $bg-body;
 
-          svg path {
-            stroke: $text-dark;
+            svg path {
+              stroke: $text-dark;
+            }
           }
-
         }
       }
     }
@@ -563,14 +574,20 @@ html {
           background-color: $text-light;
         }
 
-        &:hover::after {
-          width: 50%;
-        }
+        @media(hover: hover) {
+          &:hover::after {
+            width: 50%;
+          }
 
-        &:hover::before {
-          width: 50%;
-          transform: translateX(-100%);
+          &:hover::before {
+            width: 50%;
+            transform: translateX(-100%);
+          }
         }
+      }
+
+      .footer__link-item_inline {
+        display: inline;
       }
 
       :nth-child(2) {
@@ -619,12 +636,15 @@ html {
       cursor: pointer;
       transition: 0.5s ease-in;
 
-      &:hover {
-        background-color: $bg-container;
-        color: $text-light;
 
-        .menu__btn-img {
-          background-color: $bg-body;
+      @media(hover: hover) {
+        &:hover {
+          background-color: $bg-container;
+          color: $text-light;
+
+          .menu__btn-img {
+            background-color: $bg-body;
+          }
         }
       }
 
@@ -669,9 +689,11 @@ html {
         transition: transform 0.5s ease-out;
       }
 
-      &:hover {
-        img {
-          transform: scale(0.91);
+      @media(hover: hover) {
+        &:hover {
+          img {
+            transform: scale(0.91);
+          }
         }
       }
 
@@ -834,6 +856,7 @@ html {
     }
 
     .slider {
+      justify-content: center;
 
       .slider__left-btn,
       .slider__right-btn {
