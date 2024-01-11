@@ -71,11 +71,19 @@
 
   .hero__img {
     height: 644px;
-    background-image: url(./assets/img-hero.png);
-    background-position: center -30px;
-    background-size: cover;
+    // background-image: url(./assets/img-hero.png);
+    // background-position: center -30px;
+    // background-size: cover;
     border-radius: 40px;
     position: relative;
+    overflow: hidden;
+
+    .hero__video {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
 
     .hero__block {
       position: absolute;
@@ -85,6 +93,7 @@
       display: flex;
       flex-direction: column;
       gap: 40px;
+      z-index: 1;
 
       .hero__title {
         @include heading-1;

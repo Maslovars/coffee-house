@@ -119,11 +119,16 @@ html {
 }
 .hero .hero__img {
   height: 644px;
-  background-image: url(./assets/img-hero.png);
-  background-position: center -30px;
-  background-size: cover;
   border-radius: 40px;
   position: relative;
+  overflow: hidden;
+}
+.hero .hero__img .hero__video {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .hero .hero__img .hero__block {
   position: absolute;
@@ -133,6 +138,7 @@ html {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  z-index: 1;
 }
 .hero .hero__img .hero__block .hero__title {
   font-size: 72px;
