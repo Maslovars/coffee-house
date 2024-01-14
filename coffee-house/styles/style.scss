@@ -192,31 +192,43 @@
       }
     }
 
-    .slider__coffee {
+    .slider__wrapper {
       max-width: 480px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      overflow: hidden;
 
-      .slider__img {
-        max-width: 480px;
-        max-height: 480px;
-        margin-bottom: 20px;
+      .slider__line {
+        display: flex;
+        position: relative;
+        left: o;
+        transition: 0.5s ease;
 
-        img {
-          width: 100%;
+        .slider__coffee {
+          max-width: 480px;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+
+          .slider__img {
+            width: 480px;
+            max-height: 480px;
+            margin-bottom: 20px;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .slider__title,
+          .slider__price {
+            @include heading-3;
+          }
+
+          .slider__description {
+            @include medium;
+            text-align: center;
+            margin: 16px 0;
+          }
         }
-      }
-
-      .slider__title,
-      .slider__price {
-        @include heading-3;
-      }
-
-      .slider__description {
-        @include medium;
-        text-align: center;
-        margin: 16px 0;
       }
     }
   }
@@ -226,18 +238,28 @@
     justify-content: space-between;
     gap: 12px;
 
-    .slider__control {
-      display: block;
+    .slider__control,
+    .slider__progress {
       width: 40px;
       height: 4px;
       border-radius: 100px;
       background-color: $border-light;
-      cursor: pointer;
+
+      .slider__progress_active {
+        display: block;
+        background-color: $border-dark;
+        animation: progressToNextSlide 5s linear;
+      }
     }
 
-    .slider__control_active {
-      background-color: $border-dark;
-      cursor: default;
+    @keyframes progressToNextSlide {
+      0% {
+        width: 0;
+      }
+
+      100% {
+        width: 100%;
+      }
     }
   }
 }
@@ -709,9 +731,9 @@
   }
 }
 
-////////////////////650px
+////////////////////700px
 
-@media(max-width: 650px) {
+@media(max-width: 700px) {
   .container {
     padding: 0 16px;
   }
@@ -743,6 +765,18 @@
       .slider__left-btn,
       .slider__right-btn {
         display: none;
+      }
+
+      .slider__wrapper {
+        max-width: 348px;
+
+        .slider__line {
+          .slider__coffee {
+            .slider__img {
+              width: 348px;
+            }
+          }
+        }
       }
     }
   }
