@@ -46,6 +46,8 @@ const nextSlide = () => {
 
     sliderLine.style.left = -position + 'px';
     activeSlide(controlIndex);
+    clearInterval(resetTime);
+    resetTime();
 }
 
 const prevSlide = () => {
@@ -69,6 +71,8 @@ const prevSlide = () => {
 
     sliderLine.style.left = -position + 'px';
     activeSlide(controlIndex);
+    clearInterval(resetTime);
+    resetTime();
 }
 
 rightButton.addEventListener('click', nextSlide);
