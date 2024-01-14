@@ -664,12 +664,34 @@
     }
 
     .header__burger {
+      position: relative;
       display: flex;
-      border: none;
+      width: 44px;
+      height: 44px;
+      justify-content: center;
+      align-items: center;
       border-radius: 100px;
-      cursor: pointer;
+      border: 1px solid $border-dark;
       background-color: transparent;
-      padding: 0;
+      cursor: pointer;
+
+      .header__line {
+        position: absolute;
+        display: block;
+        width: 16px;
+        height: 1.5px;
+        background-color: $border-dark;
+        border-radius: 2px;
+        transition: 0.5s ease-in;
+      }
+
+      .header__line_top {
+        top: 16.5px;
+      }
+
+      .header__line_bottom {
+        bottom: 16.5px;
+      }
     }
   }
 

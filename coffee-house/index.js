@@ -1,4 +1,10 @@
 alert("Hi, I've been sick all week and didn't have time to finish the project, if you have the opportunity, don't check my work until Tuesday evening. Thank you in advance!");
+///////Burger Menu
+
+
+
+///////Slider
+
 const leftButton = document.querySelector('.slider__left-btn');
 const rightButton = document.querySelector('.slider__right-btn');
 const sliderLine = document.querySelector('.slider__line');
