@@ -1,4 +1,4 @@
-alert("Hi, I've been sick all week and didn't have time to finish the project, if you have the opportunity, don't check my work until Tuesday evening. Thank you in advance!");
+console.log(`Score`);
 ///////Burger Menu
 
 const body = document.body;

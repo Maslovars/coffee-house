@@ -211,6 +211,16 @@ html {
   }
 }
 
+@media (max-width: 768px) {
+  .modal .modal__overlay .modal__container .modal__block {
+    max-width: 326px;
+  }
+}
+@media (max-width: 700px) {
+  .modal .modal__overlay .modal__container .modal__img {
+    display: none;
+  }
+}
 .header {
   display: flex;
   justify-content: space-between;

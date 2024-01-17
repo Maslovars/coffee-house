@@ -3,8 +3,12 @@ const menuPreview = document.querySelector('.menu__preview');
 const loadMoreButton = document.querySelector('.menu__preview-btn');
 const items = document.getElementsByClassName('menu__preview-item');
 const modal = document.querySelector('.modal');
+// const closeModalButton = document.querySelector('.modal__close-btn');
+// const modalOverlay = document.querySelector('.modal__overlay');
+const inputs = document.getElementsByTagName('input');
 
 let category = 'coffee';
+let totalPrice = 0;
 
 function setCategory() {
   for (button of menuButtons) {
@@ -20,6 +24,35 @@ const loadMore = () => {
   for (item of items) {
     item.classList.add('displayed');
   }
+}
+
+const getTotalPrice = (item) => {
+  const inputs = document.querySelectorAll('input');
+  const ttlPrice = document.querySelector('.modal-total__price');
+  // console.log('123', inputs)
+  for (input of inputs) {
+    console.log('item', item)
+    if (input.checked && input.value === 's') {
+      totalPrice = +item.price;
+    }
+    if (input.checked && input.value === 'm') {
+      totalPrice = +item.price + +item.sizes.m["add-price"];
+    }
+    if (input.checked && input.value === 'l') {
+      totalPrice = +item.price + +item.sizes.l["add-price"];
+    }
+    if (input.checked && input.value === '1') {
+      totalPrice += +item.additives[0]["add-price"]
+    }
+    if (input.checked && input.value === '2') {
+      totalPrice += +item.additives[1]["add-price"]
+    }
+    if (input.checked && input.value === '3') {
+      totalPrice += +item.additives[2]["add-price"]
+    }
+  }
+  // console.log('123', totalPrice)  
+  ttlPrice.innerText = `$${totalPrice.toFixed(2)}`
 }
 
 const renderMenu = (category) => {
@@ -50,14 +83,25 @@ const renderMenu = (category) => {
         if (category === 'tea') {
           loadMoreButton.classList.add('hidden');
         }
+
+        const items2 = document.querySelectorAll('.menu__preview-item')
+
+        for (item of items2) {
+          let name = item.querySelector('.menu__preview-title').textContent;
+          let src = item.querySelector('img').src;
+          item.addEventListener('click', () => {
+            modal.classList.toggle('hidden');
+            body.classList.toggle('locked');
+            showModal(name, src);
+          });
+        }
       }
     })
   })
 }
 
-function showModal(name) {
+function showModal(name, src) {
   modal.innerHTML = '';
-  let i = 1;
   fetch('./products.json').then((res) => res.json()).then((data) => {
     data.forEach((card) => {
       if (card.name === name) {
@@ -65,7 +109,7 @@ function showModal(name) {
               <div class="modal__overlay">
               <div class="modal__container">
                 <div class="modal__img">
-                <img src="../assets/${category}/${category}-${i}.jpg" alt="${card.name}">
+                <img src="${src}" alt="${card.name}">
                 </div>
                 <div class="modal__block">
                   <div>
@@ -79,21 +123,21 @@ function showModal(name) {
                         <input type="radio" name="size" value="s" checked>
                         <span class="modal__btn">
                           <span class="modal-btn__icon">S</span>
-                          <span class="modal-btn__description"></span>
+                          <span class="modal-btn__description">${card.sizes.s.size}</span>
                         </span>
                       </label>
                       <label class="modal__label">
                         <input type="radio" name="size" value="m">
                         <span class="modal__btn">
                           <span class="modal-btn__icon">M</span>
-                          <span class="modal-btn__description"></span>
+                          <span class="modal-btn__description">${card.sizes.m.size}</span>
                         </span>
                       </label>
                       <label class="modal__label">
                         <input type="radio" name="size" value="l">
                         <span class="modal__btn">
                           <span class="modal-btn__icon">L</span>
-                          <span class="modal-btn__description"></span>
+                          <span class="modal-btn__description">${card.sizes.l.size}</span>
                         </span>
                       </label>
                     </div>
@@ -105,28 +149,28 @@ function showModal(name) {
                         <input type="checkbox" value="1">
                         <span class="modal__btn">
                           <span class="modal-btn__icon">1</span>
-                          <span class="modal-btn__description"></span>
+                          <span class="modal-btn__description">${card.additives[0].name}</span>
                         </span>
                       </label>
                       <label class="modal__label">
                         <input type="checkbox" value="2">
                         <span class="modal__btn">
                           <span class="modal-btn__icon">2</span>
-                          <span class="modal-btn__description"></span>
+                          <span class="modal-btn__description">${card.additives[1].name}</span>
                         </span>
                       </label>
                       <label class="modal__label">
                         <input type="checkbox" value="3">
                         <span class="modal__btn">
                           <span class="modal-btn__icon">3</span>
-                          <span class="modal-btn__description"></span>
+                          <span class="modal-btn__description">${card.additives[2].name}</span>
                         </span>
                       </label>
                     </div>
                   </div>
                   <div class="modal-total">
                     <h3 class="modal-total__title">Total:</h3>
-                    <h3 class="modal-total__price"></h3>
+                    <h3 class="modal-total__price">$${card.price}</h3>
                   </div>
                   <div class="modal-info">
                     <img src="../assets/info-empty.svg" alt="info icon">
@@ -139,16 +183,40 @@ function showModal(name) {
             </div>
                 `;
         modal.innerHTML += cardHTML;
-        i++;
+
+        const closeModalButton = document.querySelector('.modal__close-btn');
+        const modalOverlay = document.querySelector('.modal__overlay');
+        const inputs = document.querySelectorAll('input');
+
+        for (input of inputs) {
+          input.addEventListener('click', () => {
+            getTotalPrice(card);
+          });
+        }
+
+        closeModalButton.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => {
+          if (e.target === modalOverlay) {
+            closeModal();
+          }
+        });
       }
     })
   })
+}
+
+const closeModal = () => {
+  modal.classList.add('hidden');
+  body.classList.remove('locked');
 }
 
 for (button of menuButtons) {
   button.addEventListener('click', setCategory);
 }
 
+// console.log('items', items);
+
 loadMoreButton.addEventListener('click', loadMore);
+// closeModalButton.addEventListener('click', closeModal);
 
 renderMenu(category);
