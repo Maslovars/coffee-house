@@ -545,12 +545,12 @@
       gap: 8px;
       border-radius: 100px;
       border: 1px solid $border-light;
-      cursor: pointer;
       transition: 0.5s ease-in;
 
 
       @media(hover: hover) {
         &:hover {
+          cursor: pointer;
           background-color: $bg-container;
           color: $text-light;
 
