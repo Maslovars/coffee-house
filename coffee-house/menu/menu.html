@@ -18,20 +18,22 @@
     <a href="../index.html" class="header__logo">
       <img src="../assets/logo.svg" alt="site logo">
     </a>
-    <nav class="header__nav">
-      <ul class="header__list">
-        <li class="header__item"><a href="../index.html#favorite" class="header__link">Favorite coffee</a></li>
-        <li class="header__item"><a href="../index.html#about" class="header__link">About</a></li>
-        <li class="header__item"><a href="../index.html#apps" class="header__link">Mobile app</a></li>
-        <li class="header__item"><a href="#footer" class="header__link">Contact us</a></li>
-      </ul>
-    </nav>
-    <a href="" class="header__menu header__menu_active disabled">
-      Menu
-      <span>
-        <img src="../assets/coffee-cup.svg" alt="cup">
-      </span>
-    </a>
+    <div class="header__nav-container">
+      <nav class="header__nav">
+        <ul class="header__list">
+          <li class="header__item"><a href="../index.html#favorite" class="header__link">Favorite coffee</a></li>
+          <li class="header__item"><a href="../index.html#about" class="header__link">About</a></li>
+          <li class="header__item"><a href="../index.html#apps" class="header__link">Mobile app</a></li>
+          <li class="header__item"><a href="#footer" class="header__link">Contact us</a></li>
+        </ul>
+      </nav>
+      <a href="" class="header__menu header__menu_active disabled">
+        Menu
+        <span>
+          <img src="../assets/coffee-cup.svg" alt="cup">
+        </span>
+      </a>
+    </div>
     <button class="header__burger">
       <span class="header__line header__line_top"></span>
       <span class="header__line header__line_bottom"></span>
@@ -43,19 +45,19 @@
         Behind each of our cups hides an <span>amazing surprise</span>
       </h1>
       <div class="menu__btns">
-        <button class="menu__btn menu__btn_active disabled">
+        <button value="coffee" class="menu__btn menu__btn_active disabled">
           <span class="menu__btn-img">
             <img src="../assets/coffee.png" alt="coffee icon">
           </span>
           <span class="menu__btn-title">Coffee</span>
         </button>
-        <button class="menu__btn">
+        <button value="tea" class="menu__btn">
           <span class="menu__btn-img">
             <img src="../assets/tea.png" alt="tea icon">
           </span>
           <span class="menu__btn-title">Tea</span>
         </button>
-        <button class="menu__btn">
+        <button value="dessert" class="menu__btn">
           <span class="menu__btn-img">
             <img src="../assets/dessert.png" alt="dessert icon">
           </span>
@@ -63,9 +65,9 @@
         </button>
       </div>
       <div class="menu__preview">
-        <div class="menu__preview-item">
+        <!-- <div class="menu__preview-item">
           <div class="menu__preview-img">
-            <img src="../assets/coffee-1.jpg" alt="coffee image">
+            <img src="../assets/coffee/coffee-1.jpg" alt="coffee image">
           </div>
           <div class="menu__preview-block">
             <div>
@@ -79,7 +81,7 @@
         </div>
         <div class="menu__preview-item">
           <div class="menu__preview-img">
-            <img src="../assets/coffee-2.jpg" alt="coffee image">
+            <img src="../assets/coffee/coffee-2.jpg" alt="coffee image">
           </div>
           <div class="menu__preview-block">
             <div>
@@ -93,7 +95,7 @@
         </div>
         <div class="menu__preview-item">
           <div class="menu__preview-img">
-            <img src="../assets/coffee-3.jpg" alt="coffee image">
+            <img src="../assets/coffee/coffee-3.jpg" alt="coffee image">
           </div>
           <div class="menu__preview-block">
             <div>
@@ -107,7 +109,7 @@
         </div>
         <div class="menu__preview-item">
           <div class="menu__preview-img">
-            <img src="../assets/coffee-4.jpg" alt="coffee image">
+            <img src="../assets/coffee/coffee-4.jpg" alt="coffee image">
           </div>
           <div class="menu__preview-block">
             <div>
@@ -121,7 +123,7 @@
         </div>
         <div class="menu__preview-item menu__preview-item_hidden">
           <div class="menu__preview-img">
-            <img src="../assets/coffee-5.jpg" alt="coffee image">
+            <img src="../assets/coffee/coffee-5.jpg" alt="coffee image">
           </div>
           <div class="menu__preview-block">
             <div>
@@ -135,7 +137,7 @@
         </div>
         <div class="menu__preview-item menu__preview-item_hidden">
           <div class="menu__preview-img">
-            <img src="../assets/coffee-6.jpg" alt="coffee image">
+            <img src="../assets/coffee/coffee-6.jpg" alt="coffee image">
           </div>
           <div class="menu__preview-block">
             <div>
@@ -149,7 +151,7 @@
         </div>
         <div class="menu__preview-item menu__preview-item_hidden">
           <div class="menu__preview-img">
-            <img src="../assets/coffee-7.jpg" alt="coffee image">
+            <img src="../assets/coffee/coffee-7.jpg" alt="coffee image">
           </div>
           <div class="menu__preview-block">
             <div>
@@ -163,7 +165,7 @@
         </div>
         <div class="menu__preview-item menu__preview-item_hidden">
           <div class="menu__preview-img">
-            <img src="../assets/coffee-8.jpg" alt="coffee image">
+            <img src="../assets/coffee/coffee-8.jpg" alt="coffee image">
           </div>
           <div class="menu__preview-block">
             <div>
@@ -174,11 +176,11 @@
             </div>
             <h3 class="menu__preview-price">$6.50</h3>
           </div>
-        </div>
-        <button class="menu__preview-btn">
-          <img src="../assets/refresh.svg" alt="refresh button">
-        </button>
+        </div> -->
       </div>
+      <button class="menu__preview-btn">
+        <img src="../assets/refresh.svg" alt="load more button">
+      </button>
     </section>
   </main>
   <footer id="footer" class="container">
@@ -251,6 +253,8 @@
       </div>
     </div>
   </footer>
+  <script src="../index.js"></script>
+  <script src="./menu.js"></script>
 </body>
 
 </html>

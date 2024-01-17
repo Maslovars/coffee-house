@@ -48,3 +48,11 @@ html {
   pointer-events: none;
   cursor: default;
 }
+
+.locked {
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
