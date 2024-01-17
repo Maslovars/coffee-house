@@ -55,6 +55,51 @@ html {
   display: none;
 }
 
+.modal {
+  display: none;
+}
+.modal .modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  background-color: rgba(64, 63, 61, 0.8);
+}
+.modal .modal__overlay .modal__container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px;
+  max-width: 800px;
+  border-radius: 40px;
+  background-color: #E1D4C9;
+}
+.modal .modal__overlay .modal__container .modal__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  width: 310px;
+  height: 310px;
+  overflow: hidden;
+}
+.modal .modal__overlay .modal__container .modal__img img {
+  width: 340px;
+  height: 340px;
+}
+.modal .modal__overlay .modal__container .modal__block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 438px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;

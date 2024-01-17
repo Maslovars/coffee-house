@@ -2,6 +2,7 @@ const menuButtons = document.querySelectorAll('.menu__btn');
 const menuPreview = document.querySelector('.menu__preview');
 const loadMoreButton = document.querySelector('.menu__preview-btn');
 const items = document.getElementsByClassName('menu__preview-item');
+const modal = document.querySelector('.modal');
 
 let category = 'coffee';
 
@@ -22,7 +23,7 @@ const loadMore = () => {
 }
 
 const renderMenu = (category) => {
-    menuPreview.innerHTML = "";
+    menuPreview.innerHTML = '';
     let i = 1;
     fetch('./products.json').then((res) => res.json()).then((data) => {
         data.forEach((item) => {
@@ -40,7 +41,7 @@ const renderMenu = (category) => {
                       <h3 class="menu__preview-price">$${item.price}</h3>
                     </div>
                   </div>
-                    `
+                `;
                 menuPreview.innerHTML += itemHTML;
                 i++;
                 if (loadMoreButton.classList.contains('hidden')) {
@@ -54,9 +55,100 @@ const renderMenu = (category) => {
     })
 }
 
+function showModal(name) {
+    modal.innerHTML = '';
+    let i = 1;
+    fetch('./products.json').then((res) => res.json()).then((data) => {
+        data.forEach((card) => {
+            if (card.name === name) {
+                let cardHTML = `
+              <div class="modal__overlay">
+              <div class="modal__container">
+                <div class="modal__img">
+                <img src="../assets/${category}/${category}-${i}.jpg" alt="${card.name}">
+                </div>
+                <div class="modal__block">
+                  <div>
+                    <h3 class="modal__title">${card.name}</h3>
+                    <p class="modal__description">${card.description}</p>
+                  </div>
+                  <div>
+                    <div class="modal-coffee-size__title">Size</div>
+                    <div class="modal-coffee-size__block">
+                      <label class="modal-radio__label">
+                        <input type="radio" name="size" value="s" checked>
+                        <span class="modal-radio__btn">
+                          <span class="modal-radio__icon">S</span>
+                          <span class="modal-radio__size"></span>
+                        </span>
+                      </label>
+                      <label class="modal-radio__label">
+                        <input type="radio" name="size" value="m">
+                        <span class="modal-radio__btn">
+                          <span class="modal-radio__icon">M</span>
+                          <span class="modal-radio__size"></span>
+                        </span>
+                      </label>
+                      <label class="modal-radio__label">
+                        <input type="radio" name="size" value="l">
+                        <span class="modal-radio__btn">
+                          <span class="modal-radio__icon">L</span>
+                          <span class="modal-radio__size"></span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="modal-option__title">Additives</div>
+                    <div class="modal-option__block">
+                      <label class="modal-option__label">
+                        <input type="checkbox" value="1">
+                        <span class="modal-option__btn">
+                          <span class="modal-option__icon">1</span>
+                          <span class="modal-option__description"></span>
+                        </span>
+                      </label>
+                      <label class="modal-option__label">
+                        <input type="checkbox" value="2">
+                        <span class="modal-option__btn">
+                          <span class="modal-option__icon">2</span>
+                          <span class="modal-option__description"></span>
+                        </span>
+                      </label>
+                      <label class="modal-option__label">
+                        <input type="checkbox" value="3">
+                        <span class="modal-option__btn">
+                          <span class="modal-option__icon">3</span>
+                          <span class="modal-option__description"></span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="total">
+                    <h3 class="total__title">Total:</h3>
+                    <h3 class="total__price"></h3>
+                  </div>
+                  <div class="modal-info">
+                    <img src="../assets/info-empty.svg" alt="info icon">
+                    <p class="modal-info__description">The cost is not final. Download our mobile app to see the final price and place your order. 
+                    Earn loyalty points and enjoy your favorite coffee with up to 20% discount.</p>
+                  </div>
+                  <div class="modal__close-btn">Close</div>
+                </div>            
+              </div>
+            </div>
+                `;
+                modal.innerHTML += cardHTML;
+                i++;
+            }
+        })
+    })
+}
+
 for (button of menuButtons) {
     button.addEventListener('click', setCategory);
 }
+
 loadMoreButton.addEventListener('click', loadMore);
 
 renderMenu(category);
