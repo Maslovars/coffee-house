@@ -40,7 +40,7 @@ const continueSlideshow = () => {
 }
 
 if (!screenSize.matches) {
-    slider.addEventListener('mouseover', () => {
+    sliderLine.addEventListener('mouseover', () => {
         // endSlide = new Date().getTime();
         // console.log('123', endSlide)
         pauseSlideshow();
@@ -49,7 +49,7 @@ if (!screenSize.matches) {
         }
     });
 
-    slider.addEventListener('mouseout', continueSlideshow);
+    sliderLine.addEventListener('mouseout', continueSlideshow);
 }
 
 // slider.addEventListener('touchstart', () => {
