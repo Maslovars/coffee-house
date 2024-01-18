@@ -421,7 +421,7 @@ html {
 .favorite .slider .slider__wrapper .slider__line {
   display: flex;
   position: relative;
-  left: o;
+  left: 0;
   transition: 0.5s ease;
 }
 .favorite .slider .slider__wrapper .slider__line .slider__coffee {

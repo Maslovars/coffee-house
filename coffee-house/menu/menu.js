@@ -31,7 +31,7 @@ const getTotalPrice = (item) => {
   const ttlPrice = document.querySelector('.modal-total__price');
   // console.log('123', inputs)
   for (input of inputs) {
-    console.log('item', item)
+    // console.log('item', item)
     if (input.checked && input.value === 's') {
       totalPrice = +item.price;
     }
