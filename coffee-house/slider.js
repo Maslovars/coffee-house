@@ -8,6 +8,7 @@ const sliderWrapper = document.querySelector('.slider__wrapper');
 const controls = document.querySelectorAll('.slider__progress');
 const activeControls = document.getElementsByClassName('slider__progress_active');
 const screenSize = window.matchMedia('(max-width: 700px)');
+const screenSize768 = window.matchMedia('(max-width: 768px)');
 
 let position = 0;
 let controlIndex = 0;
@@ -39,8 +40,8 @@ const continueSlideshow = () => {
     }
 }
 
-if (!screenSize.matches) {
-    sliderLine.addEventListener('mouseover', () => {
+if (!screenSize768.matches) {
+    sliderLine.addEventListener('mouseenter', () => {
         // endSlide = new Date().getTime();
         // console.log('123', endSlide)
         pauseSlideshow();
@@ -49,7 +50,7 @@ if (!screenSize.matches) {
         }
     });
 
-    sliderLine.addEventListener('mouseout', continueSlideshow);
+    sliderLine.addEventListener('mouseleave', continueSlideshow);
 }
 
 // slider.addEventListener('touchstart', () => {
