@@ -39,18 +39,29 @@ const continueSlideshow = () => {
     }
 }
 
-slider.addEventListener('mouseover', () => {
-    // endSlide = new Date().getTime();
-    // console.log('123', endSlide)
-    pauseSlideshow();
-    for (control of activeControls) {
-        control.style.animationPlayState = 'paused';
-    }
-});
+if (!screenSize.matches) {
+    slider.addEventListener('mouseover', () => {
+        // endSlide = new Date().getTime();
+        // console.log('123', endSlide)
+        pauseSlideshow();
+        for (control of activeControls) {
+            control.style.animationPlayState = 'paused';
+        }
+    });
 
-slider.addEventListener('mouseout', () => {
-    continueSlideshow();
-});
+    slider.addEventListener('mouseout', continueSlideshow);
+}
+
+// slider.addEventListener('touchstart', () => {
+//     pauseSlideshow();
+//     for (control of activeControls) {
+//         control.style.animationPlayState = 'paused';
+//     }
+// }, { passive: true });
+
+// slider.addEventListener('touchend', continueSlideshow, { passive: true });
+// slider.addEventListener('touchcancel', continueSlideshow, { passive: true });
+
 
 const activeSlide = (ind) => {
     for (let control of controls) {
