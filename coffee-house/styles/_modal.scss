@@ -1,0 +1,197 @@
+.modal {
+  .modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    background-color: rgba(64, 63, 61, 0.80);
+
+    .modal__container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px;
+      max-width: 800px;
+      border-radius: 40px;
+      background-color: $bg-body;
+
+      .modal__img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 40px;
+        width: 310px;
+        height: 310px;
+        overflow: hidden;
+
+        img {
+          width: 340px;
+          height: 340px;
+        }
+      }
+
+      .modal__block {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        max-width: 438px;
+
+        .modal__title {
+          @include heading-3;
+          margin-bottom: 12px;
+        }
+
+        .modal__description,
+        .modal__subtitle {
+          @include medium;
+          color: $text-dark
+        }
+
+        .modal__subblock {
+          display: flex;
+          align-content: flex-start;
+          gap: 8px;
+          flex-wrap: wrap;
+          margin-top: 8px;
+        }
+
+        .modal__label {
+          input {
+            display: none;
+          }
+
+          .modal__btn {
+            @include link-btn;
+            display: flex;
+            padding: 8px 16px 8px 8px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: 100px;
+            border: 1px solid $border-light;
+            color: $text-dark;
+            transition: 0.5s ease-in;
+
+            .modal-btn__icon,
+            .modal-btn__description {
+              transition: 0.5s ease-in;
+            }
+
+            .modal-btn__icon {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 30px;
+              padding: 3px 10px;
+              border-radius: 100px;
+              background-color: $border-light;
+            }
+
+            @media(hover: hover) {
+              &:hover {
+                cursor: pointer;
+                background-color: $border-light;
+
+                .modal-btn__icon {
+                  background-color: $bg-body;
+                }
+
+                .modal-btn__description {
+                  color: $text-light;
+                }
+              }
+            }
+          }
+
+          input:checked+.modal__btn {
+            background-color: $bg-container;
+
+            .modal-btn__icon {
+              background-color: $bg-body;
+            }
+
+            .modal-btn__description {
+              color: $text-light;
+            }
+          }
+        }
+
+        .modal-total {
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          align-self: stretch;
+
+          .modal-total__title,
+          .modal-total__price {
+            @include heading-3;
+          }
+        }
+
+        .modal-info {
+          display: flex;
+          padding: 12px 0px;
+          gap: 8px;
+          align-self: stretch;
+          border-top: 1px solid $border-light;
+
+          .modal-info__description {
+            @include caption;
+            color: $text-dark
+          }
+        }
+
+        .modal__close-btn {
+          display: flex;
+          padding: 10px 78px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          align-self: stretch;
+          background-color: transparent;
+          border-radius: 100px;
+          border: 1px solid $border-dark;
+          transition: 0.5s ease-in;
+
+          @media(hover: hover) {
+            &:hover {
+              cursor: pointer;
+              background-color: $bg-container;
+              color: $text-light;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    .modal__overlay {
+      .modal__container {
+        .modal__block {
+          max-width: 326px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .modal {
+    .modal__overlay {
+      .modal__container {
+        .modal__img {
+          display: none;
+        }
+      }
+    }
+  }
+}
