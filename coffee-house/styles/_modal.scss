@@ -139,6 +139,7 @@
           padding: 12px 0px;
           gap: 8px;
           align-self: stretch;
+          border-top: 1px solid $border-light;
 
           .modal-info__description {
             @include caption;

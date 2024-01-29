@@ -184,6 +184,7 @@ html {
   padding: 12px 0px;
   gap: 8px;
   align-self: stretch;
+  border-top: 1px solid #C1B6AD;
 }
 .modal .modal__overlay .modal__container .modal__block .modal-info .modal-info__description {
   font-size: 10px;
@@ -890,7 +891,7 @@ html {
     position: absolute;
     display: block;
     width: 16px;
-    height: 1.5px;
+    height: 2px;
     background-color: #665F55;
     border-radius: 2px;
     transition: 0.5s ease-in;

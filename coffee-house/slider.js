@@ -31,7 +31,7 @@ const pauseSlideshow = () => {
 const continueSlideshow = () => {
     const progressBar = document.querySelector('.slider__progress_active');
     let timeToNextSlide = interval - (progressBar.offsetWidth * 1000 / 8);
-    console.log('timeToNextSlide', timeToNextSlide);
+    // console.log('timeToNextSlide', timeToNextSlide);
     // let timeToNextSlide = endSlide - startSlide;
     // console.log('timeToNextSlide', timeToNextSlide)
     getNewSlide = setInterval(() => nextSlide(), timeToNextSlide);
@@ -53,15 +53,17 @@ if (!screenSize768.matches) {
     sliderLine.addEventListener('mouseleave', continueSlideshow);
 }
 
-// slider.addEventListener('touchstart', () => {
-//     pauseSlideshow();
-//     for (control of activeControls) {
-//         control.style.animationPlayState = 'paused';
-//     }
-// }, { passive: true });
+// if (screenSize768.matches) {
+//     slider.addEventListener('touchstart', () => {
+//         pauseSlideshow();
+//         for (control of activeControls) {
+//             control.style.animationPlayState = 'paused';
+//         }
+//     }, { passive: true });
 
-// slider.addEventListener('touchend', continueSlideshow, { passive: true });
-// slider.addEventListener('touchcancel', continueSlideshow, { passive: true });
+//     slider.addEventListener('touchend', continueSlideshow, { passive: true });
+//     slider.addEventListener('touchcancel', continueSlideshow, { passive: true });
+// }
 
 
 const activeSlide = (ind) => {
