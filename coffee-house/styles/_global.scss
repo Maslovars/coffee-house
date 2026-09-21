@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 h1,
@@ -9,50 +9,53 @@ h2,
 h3,
 p,
 ul {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 a {
-  text-decoration: none;
-  position: relative;
-  transition: 0.5s ease-in;
-
-  &::after,
-  &::before {
+    text-decoration: none;
+    position: relative;
     transition: 0.5s ease-in;
-  }
+
+    &::after,
+    &::before {
+        transition: 0.5s ease-in;
+    }
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: $bg-body;
+    font-family: 'Inter', sans-serif;
+    background-color: $bg-body;
+    transition:
+        background-color var(--theme-transition),
+        color var(--theme-transition);
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 .container {
-  max-width: 1440px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 40px;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 40px;
 }
 
 .disabled {
-  pointer-events: none;
-  cursor: default;
+    pointer-events: none;
+    cursor: default;
 }
 
 .locked {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }

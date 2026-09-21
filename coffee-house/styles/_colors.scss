@@ -1,8 +1,31 @@
-$text-dark: #403F3D;
-$text-light: #E1D4C9;
-$text-accent: #B0907A;
-$bg-body: #E1D4C9;
-$bg-container: #665F55;
-$bg-backdrop: rgba(64, 63, 61, 0.80);
-$border-light: #C1B6AD;
-$border-dark: #665F55;
+:root {
+    --c-text-dark: #403f3d;
+    --c-text-light: #e1d4c9;
+    --c-text-accent: #b0907a;
+    --c-bg-body: #e1d4c9;
+    --c-bg-container: #665f55;
+    --c-bg-backdrop: rgba(64, 63, 61, 0.8);
+    --c-border-light: #c1b6ad;
+    --c-border-dark: #665f55;
+    --theme-transition: 0.3s ease-in-out;
+}
+
+[data-theme='dark'] {
+    --c-text-dark: #e1d4c9;
+    --c-text-light: #e1d4c9;
+    --c-text-accent: #b0907a;
+    --c-bg-body: #292826;
+    --c-bg-container: #403f3d;
+    --c-bg-backdrop: rgba(64, 63, 61, 0.8);
+    --c-border-light: #665f55;
+    --c-border-dark: #c1b6ad;
+}
+
+$text-dark: var(--c-text-dark);
+$text-light: var(--c-text-light);
+$text-accent: var(--c-text-accent);
+$bg-body: var(--c-bg-body);
+$bg-container: var(--c-bg-container);
+$bg-backdrop: var(--c-bg-backdrop);
+$border-light: var(--c-border-light);
+$border-dark: var(--c-border-dark);
