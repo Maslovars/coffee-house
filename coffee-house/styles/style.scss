@@ -667,7 +667,7 @@
 
 //////////////////768px
 
-@media (max-width: 768px) {
+@media (max-width: 868px) {
     .header {
         .header__nav-container {
             position: fixed;
@@ -951,6 +951,9 @@
 }
 
 .theme-switch {
+    position: fixed;
+    top: 28px;
+    right: 19vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1004,6 +1007,13 @@
                 }
             }
         }
+    }
+    @media (max-width: 950px) {
+        right: 15vw;
+    }
+
+    @media (max-width: 450px) {
+        right: 25vw;
     }
 }
 

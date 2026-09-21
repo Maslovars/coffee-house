@@ -865,7 +865,7 @@ html {
     max-width: 688px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 868px) {
   .header .header__nav-container {
     position: fixed;
     top: 100px;
@@ -1081,6 +1081,9 @@ html {
   }
 }
 .theme-switch {
+  position: fixed;
+  top: 28px;
+  right: 19vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1126,6 +1129,16 @@ html {
   }
   .theme-switch__icon_moon:hover svg path {
     fill: #e1d4c9;
+  }
+}
+@media (max-width: 950px) {
+  .theme-switch {
+    right: 15vw;
+  }
+}
+@media (max-width: 450px) {
+  .theme-switch {
+    right: 25vw;
   }
 }
 
