@@ -1131,7 +1131,12 @@ html {
     fill: #e1d4c9;
   }
 }
-@media (max-width: 950px) {
+@media (max-width: 1440px) {
+  .theme-switch {
+    right: 11vw;
+  }
+}
+@media (max-width: 1050px) {
   .theme-switch {
     right: 15vw;
   }

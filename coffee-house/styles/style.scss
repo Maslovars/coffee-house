@@ -1008,7 +1008,10 @@
             }
         }
     }
-    @media (max-width: 950px) {
+    @media (max-width: 1440px) {
+        right: 11vw;
+    }
+    @media (max-width: 1050px) {
         right: 15vw;
     }
 
