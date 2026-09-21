@@ -1081,7 +1081,7 @@ html {
   }
 }
 .theme-switch {
-  position: fixed;
+  position: absolute;
   top: 28px;
   right: 19vw;
   display: flex;
