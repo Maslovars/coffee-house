@@ -11,57 +11,59 @@ let category = 'coffee';
 let totalPrice = 0;
 
 function setCategory() {
-  for (button of menuButtons) {
-    button.classList.remove('menu__btn_active', 'disabled');
-  }
-  category = this.value;
-  this.classList.add('menu__btn_active', 'disabled');
-  renderMenu(category);
+    for (button of menuButtons) {
+        button.classList.remove('menu__btn_active', 'disabled');
+    }
+    category = this.value;
+    this.classList.add('menu__btn_active', 'disabled');
+    renderMenu(category);
 }
 
 const loadMore = () => {
-  loadMoreButton.classList.add('hidden');
-  for (item of items) {
-    item.classList.add('displayed');
-  }
-}
+    loadMoreButton.classList.add('hidden');
+    for (item of items) {
+        item.classList.add('displayed');
+    }
+};
 
 const getTotalPrice = (item) => {
-  const inputs = document.querySelectorAll('input');
-  const ttlPrice = document.querySelector('.modal-total__price');
-  // console.log('123', inputs)
-  for (input of inputs) {
-    // console.log('item', item)
-    if (input.checked && input.value === 's') {
-      totalPrice = +item.price;
+    const inputs = document.querySelectorAll('input');
+    const ttlPrice = document.querySelector('.modal-total__price');
+    // console.log('123', inputs)
+    for (input of inputs) {
+        // console.log('item', item)
+        if (input.checked && input.value === 's') {
+            totalPrice = +item.price;
+        }
+        if (input.checked && input.value === 'm') {
+            totalPrice = +item.price + +item.sizes.m['add-price'];
+        }
+        if (input.checked && input.value === 'l') {
+            totalPrice = +item.price + +item.sizes.l['add-price'];
+        }
+        if (input.checked && input.value === '1') {
+            totalPrice += +item.additives[0]['add-price'];
+        }
+        if (input.checked && input.value === '2') {
+            totalPrice += +item.additives[1]['add-price'];
+        }
+        if (input.checked && input.value === '3') {
+            totalPrice += +item.additives[2]['add-price'];
+        }
     }
-    if (input.checked && input.value === 'm') {
-      totalPrice = +item.price + +item.sizes.m["add-price"];
-    }
-    if (input.checked && input.value === 'l') {
-      totalPrice = +item.price + +item.sizes.l["add-price"];
-    }
-    if (input.checked && input.value === '1') {
-      totalPrice += +item.additives[0]["add-price"]
-    }
-    if (input.checked && input.value === '2') {
-      totalPrice += +item.additives[1]["add-price"]
-    }
-    if (input.checked && input.value === '3') {
-      totalPrice += +item.additives[2]["add-price"]
-    }
-  }
-  // console.log('123', totalPrice)  
-  ttlPrice.innerText = `$${totalPrice.toFixed(2)}`
-}
+    // console.log('123', totalPrice)
+    ttlPrice.innerText = `$${totalPrice.toFixed(2)}`;
+};
 
 const renderMenu = (category) => {
-  menuPreview.innerHTML = '';
-  let i = 1;
-  fetch('./products.json').then((res) => res.json()).then((data) => {
-    data.forEach((item) => {
-      if (item.category === category) {
-        let itemHTML = `
+    menuPreview.innerHTML = '';
+    let i = 1;
+    fetch('./products.json')
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((item) => {
+                if (item.category === category) {
+                    let itemHTML = `
                   <div class="menu__preview-item">
                     <div class="menu__preview-img">
                       <img src="../assets/${category}/${category}-${i}.jpg" alt="${item.name}">
@@ -75,37 +77,43 @@ const renderMenu = (category) => {
                     </div>
                   </div>
                 `;
-        menuPreview.innerHTML += itemHTML;
-        i++;
-        if (loadMoreButton.classList.contains('hidden')) {
-          loadMoreButton.classList.remove('hidden');
-        }
-        if (category === 'tea') {
-          loadMoreButton.classList.add('hidden');
-        }
+                    menuPreview.innerHTML += itemHTML;
+                    i++;
+                    if (loadMoreButton.classList.contains('hidden')) {
+                        loadMoreButton.classList.remove('hidden');
+                    }
+                    if (category === 'tea') {
+                        loadMoreButton.classList.add('hidden');
+                    }
 
-        const items2 = document.querySelectorAll('.menu__preview-item')
+                    const items2 = document.querySelectorAll(
+                        '.menu__preview-item',
+                    );
 
-        for (item of items2) {
-          let name = item.querySelector('.menu__preview-title').textContent;
-          let src = item.querySelector('img').src;
-          item.addEventListener('click', () => {
-            modal.classList.toggle('hidden');
-            body.classList.toggle('locked');
-            showModal(name, src);
-          });
-        }
-      }
-    })
-  })
-}
+                    for (item of items2) {
+                        let name = item.querySelector(
+                            '.menu__preview-title',
+                        ).textContent;
+                        let src = item.querySelector('img').src;
+                        item.addEventListener('click', () => {
+                            modal.classList.toggle('hidden');
+                            body.classList.toggle('locked');
+                            showModal(name, src);
+                        });
+                    }
+                }
+            });
+        });
+};
 
 function showModal(name, src) {
-  modal.innerHTML = '';
-  fetch('./products.json').then((res) => res.json()).then((data) => {
-    data.forEach((card) => {
-      if (card.name === name) {
-        let cardHTML = `
+    modal.innerHTML = '';
+    fetch('./products.json')
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((card) => {
+                if (card.name === name) {
+                    let cardHTML = `
               <div class="modal__overlay">
               <div class="modal__container">
                 <div class="modal__img">
@@ -173,7 +181,18 @@ function showModal(name, src) {
                     <h3 class="modal-total__price">$${card.price}</h3>
                   </div>
                   <div class="modal-info">
-                    <img src="../assets/info-empty.svg" alt="info icon">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g clip-path="url(#clip0_147813_9866)">
+                        <path d="M8 7.66675V11.0001" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M8 5.00667L8.00667 4.99926" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M7.99967 14.6666C11.6816 14.6666 14.6663 11.6818 14.6663 7.99992C14.6663 4.31802 11.6816 1.33325 7.99967 1.33325C4.31778 1.33325 1.33301 4.31802 1.33301 7.99992C1.33301 11.6818 4.31778 14.6666 7.99967 14.6666Z" stroke-linecap="round" stroke-linejoin="round" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_147813_9866">
+                          <rect width="16" height="16" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
                     <p class="modal-info__description">The cost is not final. Download our mobile app to see the final price and place your order. 
                     Earn loyalty points and enjoy your favorite coffee with up to 20% discount.</p>
                   </div>
@@ -182,36 +201,38 @@ function showModal(name, src) {
               </div>
             </div>
                 `;
-        modal.innerHTML += cardHTML;
+                    modal.innerHTML += cardHTML;
 
-        const closeModalButton = document.querySelector('.modal__close-btn');
-        const modalOverlay = document.querySelector('.modal__overlay');
-        const inputs = document.querySelectorAll('input');
+                    const closeModalButton =
+                        document.querySelector('.modal__close-btn');
+                    const modalOverlay =
+                        document.querySelector('.modal__overlay');
+                    const inputs = document.querySelectorAll('input');
 
-        for (input of inputs) {
-          input.addEventListener('click', () => {
-            getTotalPrice(card);
-          });
-        }
+                    for (input of inputs) {
+                        input.addEventListener('click', () => {
+                            getTotalPrice(card);
+                        });
+                    }
 
-        closeModalButton.addEventListener('click', closeModal);
-        modalOverlay.addEventListener('click', (e) => {
-          if (e.target === modalOverlay) {
-            closeModal();
-          }
+                    closeModalButton.addEventListener('click', closeModal);
+                    modalOverlay.addEventListener('click', (e) => {
+                        if (e.target === modalOverlay) {
+                            closeModal();
+                        }
+                    });
+                }
+            });
         });
-      }
-    })
-  })
 }
 
 const closeModal = () => {
-  modal.classList.add('hidden');
-  body.classList.remove('locked');
-}
+    modal.classList.add('hidden');
+    body.classList.remove('locked');
+};
 
 for (button of menuButtons) {
-  button.addEventListener('click', setCategory);
+    button.addEventListener('click', setCategory);
 }
 
 // console.log('items', items);
