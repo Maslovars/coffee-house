@@ -89,7 +89,7 @@ html {
   justify-content: center;
   align-items: center;
   z-index: 3;
-  background-color: rgba(64, 63, 61, 0.8);
+  background-color: var(--c-bg-backdrop);
 }
 .modal .modal__overlay .modal__container {
   display: flex;
@@ -125,6 +125,7 @@ html {
   font-weight: 600;
   line-height: 125%;
   margin-bottom: 12px;
+  color: var(--c-text-dark);
 }
 .modal .modal__overlay .modal__container .modal__block .modal__description,
 .modal .modal__overlay .modal__container .modal__block .modal__subtitle {
@@ -202,6 +203,7 @@ html {
   font-size: 24px;
   font-weight: 600;
   line-height: 125%;
+  color: var(--c-text-dark);
 }
 .modal .modal__overlay .modal__container .modal__block .modal-info {
   display: flex;
@@ -209,6 +211,17 @@ html {
   gap: 8px;
   align-self: stretch;
   border-top: 1px solid var(--c-border-light);
+}
+.modal .modal__overlay .modal__container .modal__block .modal-info svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  flex: none;
+}
+.modal .modal__overlay .modal__container .modal__block .modal-info svg path {
+  stroke: var(--c-text-dark);
 }
 .modal .modal__overlay .modal__container .modal__block .modal-info .modal-info__description {
   font-size: 10px;
@@ -226,6 +239,7 @@ html {
   background-color: transparent;
   border-radius: 100px;
   border: 1px solid var(--c-border-dark);
+  color: var(--c-text-dark);
   transition: 0.5s ease-in;
 }
 @media (hover: hover) {
