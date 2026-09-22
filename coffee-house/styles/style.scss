@@ -58,30 +58,31 @@
             @include link-btn;
             color: $text-dark;
 
-            &::after,
-            &::before {
+            &::after {
                 @include underline;
                 background-color: $text-dark;
+                left: 0;
+                width: 100%;
+                transform: scaleX(0);
+                transform-origin: center;
+            }
+
+            &::before {
+                display: none;
             }
 
             @media (hover: hover) {
-                &:hover::after {
-                    width: 50%;
-                }
-
-                &:hover::before {
-                    width: 50%;
-                    transform: translateX(-100%);
+                &:hover {
+                    &::after {
+                        transform: scaleX(1);
+                    }
                 }
             }
         }
 
         .header__menu_active {
             &::after {
-                @include underline;
-                background-color: $text-dark;
-                width: 100%;
-                left: 0;
+                transform: scaleX(1);
             }
         }
     }
