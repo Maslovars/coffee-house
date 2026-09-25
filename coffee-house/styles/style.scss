@@ -29,18 +29,51 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 894px;
-        width: 75vw;
 
         .header__list {
             display: flex;
             gap: 40px;
 
             .header__item {
-                transition: 5s ease-in;
+                transition: 0.5s ease-in;
+                .header__link {
+                    @include link-btn;
+                    color: $text-dark;
+
+                    &::after {
+                        @include underline;
+                        background-color: $text-dark;
+                        left: 0;
+                        width: 100%;
+                        transform: scaleX(0);
+                        transform-origin: center;
+                    }
+
+                    &::before {
+                        display: none;
+                    }
+
+                    @media (hover: hover) {
+                        &:hover {
+                            &::after {
+                                transform: scaleX(1);
+                            }
+                        }
+                    }
+                }
             }
         }
+    }
 
+    .header__burger {
+        display: none;
+    }
+
+    .header__actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 184px;
         .header__menu {
             display: flex;
             gap: 8px;
@@ -53,7 +86,6 @@
             }
         }
 
-        .header__link,
         .header__menu {
             @include link-btn;
             color: $text-dark;
@@ -85,17 +117,6 @@
                 transform: scaleX(1);
             }
         }
-    }
-
-    .header__actions {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 184px;
-    }
-
-    .header__burger {
-        display: none;
     }
 }
 
@@ -698,7 +719,7 @@
 
 //////////////////768px
 
-@media (max-width: 868px) {
+@media (max-width: 768px) {
     .header {
         .header__nav-container {
             position: fixed;
@@ -732,23 +753,11 @@
                     }
                 }
             }
-
-            .header__menu {
-                font-size: 32px;
-
-                span {
-                    width: 40px;
-                    height: 40px;
-
-                    img {
-                        width: 100%;
-                    }
-                }
-            }
         }
 
         .header__burger {
-            position: relative;
+            position: absolute;
+            right: 40px;
             display: flex;
             width: 44px;
             height: 44px;
@@ -792,6 +801,59 @@
 
         .header__nav-container.active {
             transform: translateX(0);
+            .header__menu {
+                @include link-btn;
+                display: flex;
+                font-size: 32px;
+                color: $text-dark;
+
+                &::after {
+                    @include underline;
+                    background-color: $text-dark;
+                    left: 0;
+                    width: 100%;
+                    transform: scaleX(0);
+                    transform-origin: center;
+                }
+
+                &::before {
+                    display: none;
+                }
+
+                @media (hover: hover) {
+                    &:hover {
+                        &::after {
+                            transform: scaleX(1);
+                        }
+                    }
+                }
+
+                span {
+                    width: 40px;
+                    height: 40px;
+
+                    .header__cup-icon {
+                        width: 100%;
+                        path {
+                            stroke: $text-dark;
+                        }
+                    }
+                }
+            }
+            .header__menu_active {
+                &::after {
+                    transform: scaleX(1);
+                }
+            }
+        }
+
+        .header__actions {
+            .theme-switch {
+                margin-right: 90px;
+            }
+            .header__menu {
+                display: none;
+            }
         }
     }
 
@@ -987,9 +1049,6 @@
 }
 
 .theme-switch {
-    position: absolute;
-    top: 28px;
-    right: 19vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1043,16 +1102,6 @@
                 }
             }
         }
-    }
-    @media (max-width: 1440px) {
-        right: 11vw;
-    }
-    @media (max-width: 1050px) {
-        right: 15vw;
-    }
-
-    @media (max-width: 450px) {
-        right: 25vw;
     }
 }
 
