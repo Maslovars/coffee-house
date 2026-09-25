@@ -986,10 +986,12 @@ html {
     bottom: 20.5px;
     transform: rotate(45deg);
   }
-  .header .header__nav-container.active {
+  .header .header__nav-container.active,
+  .header .header__nav-container.closing {
     transform: translateX(0);
   }
-  .header .header__nav-container.active .header__menu {
+  .header .header__nav-container.active .header__menu,
+  .header .header__nav-container.closing .header__menu {
     font-size: 16px;
     font-weight: 600;
     line-height: 150%;
@@ -997,7 +999,8 @@ html {
     font-size: 32px;
     color: var(--c-text-dark);
   }
-  .header .header__nav-container.active .header__menu::after {
+  .header .header__nav-container.active .header__menu::after,
+  .header .header__nav-container.closing .header__menu::after {
     content: "";
     position: absolute;
     height: 2px;
@@ -1010,28 +1013,37 @@ html {
     transform: scaleX(0);
     transform-origin: center;
   }
-  .header .header__nav-container.active .header__menu::before {
+  .header .header__nav-container.active .header__menu::before,
+  .header .header__nav-container.closing .header__menu::before {
     display: none;
   }
 }
 @media (max-width: 768px) and (hover: hover) {
-  .header .header__nav-container.active .header__menu:hover::after {
+  .header .header__nav-container.active .header__menu:hover::after,
+  .header .header__nav-container.closing .header__menu:hover::after {
     transform: scaleX(1);
   }
 }
 @media (max-width: 768px) {
-  .header .header__nav-container.active .header__menu span {
+  .header .header__nav-container.active .header__menu span,
+  .header .header__nav-container.closing .header__menu span {
     width: 40px;
     height: 40px;
   }
-  .header .header__nav-container.active .header__menu span .header__cup-icon {
+  .header .header__nav-container.active .header__menu span .header__cup-icon,
+  .header .header__nav-container.closing .header__menu span .header__cup-icon {
     width: 100%;
   }
-  .header .header__nav-container.active .header__menu span .header__cup-icon path {
+  .header .header__nav-container.active .header__menu span .header__cup-icon path,
+  .header .header__nav-container.closing .header__menu span .header__cup-icon path {
     stroke: var(--c-text-dark);
   }
-  .header .header__nav-container.active .header__menu_active::after {
+  .header .header__nav-container.active .header__menu_active::after,
+  .header .header__nav-container.closing .header__menu_active::after {
     transform: scaleX(1);
+  }
+  .header .header__nav-container.closing {
+    transform: translateX(100%);
   }
   .header .header__actions .theme-switch {
     margin-right: 90px;

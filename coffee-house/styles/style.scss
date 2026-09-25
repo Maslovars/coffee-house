@@ -799,7 +799,8 @@
             }
         }
 
-        .header__nav-container.active {
+        .header__nav-container.active,
+        .header__nav-container.closing {
             transform: translateX(0);
             .header__menu {
                 @include link-btn;
@@ -845,6 +846,10 @@
                     transform: scaleX(1);
                 }
             }
+        }
+
+        .header__nav-container.closing {
+            transform: translateX(100%);
         }
 
         .header__actions {
