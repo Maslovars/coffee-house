@@ -331,12 +331,6 @@ html {
 .header .header__actions .header__menu {
   display: flex;
   gap: 8px;
-}
-.header .header__actions .header__menu .header__cup-icon path {
-  stroke: var(--c-text-dark);
-  transition: stroke 0.3s ease;
-}
-.header .header__actions .header__menu {
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
@@ -357,6 +351,10 @@ html {
 }
 .header .header__actions .header__menu::before {
   display: none;
+}
+.header .header__actions .header__menu .header__cup-icon path {
+  stroke: var(--c-text-dark);
+  transition: stroke 0.3s ease;
 }
 @media (hover: hover) {
   .header .header__actions .header__menu:hover::after {

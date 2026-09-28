@@ -74,19 +74,10 @@
         align-items: center;
         justify-content: space-between;
         width: 184px;
+
         .header__menu {
             display: flex;
             gap: 8px;
-
-            .header__cup-icon {
-                path {
-                    stroke: $text-dark;
-                    transition: stroke 0.3s ease;
-                }
-            }
-        }
-
-        .header__menu {
             @include link-btn;
             color: $text-dark;
 
@@ -101,6 +92,13 @@
 
             &::before {
                 display: none;
+            }
+
+            .header__cup-icon {
+                path {
+                    stroke: $text-dark;
+                    transition: stroke 0.3s ease;
+                }
             }
 
             @media (hover: hover) {
