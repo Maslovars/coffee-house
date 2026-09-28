@@ -6,7 +6,9 @@ const sliderLine = document.querySelector('.slider__line');
 const slider = document.querySelector('.slider');
 const sliderWrapper = document.querySelector('.slider__wrapper');
 const controls = document.querySelectorAll('.slider__progress');
-const activeControls = document.getElementsByClassName('slider__progress_active');
+const activeControls = document.getElementsByClassName(
+    'slider__progress_active',
+);
 const screenSize = window.matchMedia('(max-width: 700px)');
 const screenSize768 = window.matchMedia('(max-width: 768px)');
 
@@ -16,34 +18,35 @@ let interval = 5000;
 let getNewSlide;
 let start;
 let change;
-// let endSlide;
-// let startSlide;
+
+const getSlideWidth = () => {
+    return sliderWrapper.getBoundingClientRect().width;
+};
+
+const updateSliderPosition = () => {
+    const slideWidth = getSlideWidth();
+    sliderLine.style.transform = `translateX(${-controlIndex * slideWidth}px)`;
+};
 
 const startSlideshow = () => {
     getNewSlide = setInterval(() => nextSlide(), interval);
-    // startSlide = new Date().getTime();
-}
+};
 
 const pauseSlideshow = () => {
     clearInterval(getNewSlide);
-}
+};
 
 const continueSlideshow = () => {
     const progressBar = document.querySelector('.slider__progress_active');
-    let timeToNextSlide = interval - (progressBar.offsetWidth * 1000 / 8);
-    // console.log('timeToNextSlide', timeToNextSlide);
-    // let timeToNextSlide = endSlide - startSlide;
-    // console.log('timeToNextSlide', timeToNextSlide)
+    let timeToNextSlide = interval - (progressBar.offsetWidth * 1000) / 8;
     getNewSlide = setInterval(() => nextSlide(), timeToNextSlide);
     for (control of activeControls) {
         control.style.animationPlayState = 'running';
     }
-}
+};
 
 if (!screenSize768.matches) {
     sliderLine.addEventListener('mouseenter', () => {
-        // endSlide = new Date().getTime();
-        // console.log('123', endSlide)
         pauseSlideshow();
         for (control of activeControls) {
             control.style.animationPlayState = 'paused';
@@ -53,19 +56,6 @@ if (!screenSize768.matches) {
     sliderLine.addEventListener('mouseleave', continueSlideshow);
 }
 
-// if (screenSize768.matches) {
-//     slider.addEventListener('touchstart', () => {
-//         pauseSlideshow();
-//         for (control of activeControls) {
-//             control.style.animationPlayState = 'paused';
-//         }
-//     }, { passive: true });
-
-//     slider.addEventListener('touchend', continueSlideshow, { passive: true });
-//     slider.addEventListener('touchcancel', continueSlideshow, { passive: true });
-// }
-
-
 const activeSlide = (ind) => {
     for (let control of controls) {
         control.classList.remove('slider__progress_active');
@@ -73,72 +63,68 @@ const activeSlide = (ind) => {
     controls[ind].classList.add('slider__progress_active');
     pauseSlideshow();
     startSlideshow();
-}
+};
 
 const nextSlide = () => {
-    if (screenSize.matches) {
-        if (position < 696) {
-            position += 348;
-            controlIndex++;
-        } else {
-            position = 0;
-            controlIndex = 0;
-        }
+    const totalSlides = controls.length;
+    if (controlIndex < totalSlides - 1) {
+        controlIndex++;
     } else {
-        if (position < 960) {
-            position += 480;
-            controlIndex++;
-        } else {
-            position = 0;
-            controlIndex = 0;
-        }
+        controlIndex = 0;
     }
-
-    sliderLine.style.left = -position + 'px';
+    updateSliderPosition();
     activeSlide(controlIndex);
-}
+};
 
 const prevSlide = () => {
-    if (screenSize.matches) {
-        if (position > 0) {
-            position -= 348;
-            controlIndex--;
-        } else {
-            position = 696;
-            controlIndex = 2;
-        }
+    const totalSlides = controls.length;
+    if (controlIndex > 0) {
+        controlIndex--;
     } else {
-        if (position > 0) {
-            position -= 480;
-            controlIndex--;
-        } else {
-            position = 960;
-            controlIndex = 2;
-        }
+        controlIndex = totalSlides - 1;
     }
-
-    sliderLine.style.left = -position + 'px';
+    updateSliderPosition();
     activeSlide(controlIndex);
-}
+};
 
 const setTouchDirection = () => {
-    if (change > 10) {
+    if (change > 25) {
         nextSlide();
-    } else if (change < -10) {
+    } else if (change < -25) {
         prevSlide();
     }
-}
+    start = 0;
+    change = 0;
+};
+
+window.addEventListener('resize', () => {
+    sliderLine.style.transition = 'none';
+    updateSliderPosition();
+    requestAnimationFrame(() => {
+        sliderLine.style.transition = '0.5s ease';
+    });
+});
 
 rightButton.addEventListener('click', nextSlide);
 leftButton.addEventListener('click', prevSlide);
 
-sliderLine.addEventListener('touchstart', (e) => {
-    start = e.touches[0].clientX;
-}, { passive: true });
-sliderLine.addEventListener('touchmove', (e) => {
-    let touch = e.touches[0];
-    change = start - touch.clientX;
-}, { passive: true });
+sliderLine.addEventListener(
+    'touchstart',
+    (e) => {
+        if (e.cancelable) e.preventDefault();
+        start = e.touches[0].clientX;
+    },
+    { passive: false },
+);
+sliderLine.addEventListener(
+    'touchmove',
+    (e) => {
+        if (!start) return;
+        let touch = e.touches[0];
+        change = start - touch.clientX;
+    },
+    { passive: true },
+);
 sliderLine.addEventListener('touchend', setTouchDirection, { passive: true });
 
 startSlideshow();
