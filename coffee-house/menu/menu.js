@@ -240,4 +240,10 @@ for (button of menuButtons) {
 loadMoreButton.addEventListener('click', loadMore);
 // closeModalButton.addEventListener('click', closeModal);
 
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+});
+
 renderMenu(category);
